@@ -8,11 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- 
-    Heroicons CDN は削除しました (v2)
-    <script type="module" src="https://unpkg.com/heroicons@2.1.3/24/outline/dist/index.js"></script> 
-    -->
-
+    
     <style>
         body {
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
@@ -48,7 +44,8 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <p class="mt-4 text-lg font-semibold">ドラフト会議室に接続中...</p>
+                <!-- v3: 文言変更 -->
+                <p class="mt-4 text-lg font-semibold">ドラフトロビーに接続中...</p>
                 <p class="text-gray-600">Firebaseに接続し、認証しています。</p>
             </div>
         </div>
@@ -56,15 +53,17 @@
         <!-- ルーム作成 / 参加画面 -->
         <div id="room-setup" class="hidden max-w-md mx-auto mt-20 p-8 bg-white rounded-2xl shadow-xl">
             <h1 class="text-3xl font-bold text-center text-gray-900 mb-6">ドラフト会議へようこそ</h1>
-            <p class="text-center text-gray-600 mb-8">『あの頃の自作TCG』ドラフト会議室です。<br>ホストとして新しい会議室を作るか、既存の会議室に参加してください。</p>
+            <!-- v3: 文言変更 -->
+            <p class="text-center text-gray-600 mb-8">『あの頃の自作TCG』ドラフトロビーです。<br>ホストとして新しいロビーを作るか、既存のロビーに参加してください。</p>
             
             <div class="mb-6">
                 <label for="user-name" class="block text-sm font-medium text-gray-700 mb-2">あなたの名前</label>
                 <input type="text" id="user-name" placeholder="例: 参加者A" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
+            <!-- v3: 文言変更 -->
             <button id="create-room-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5">
-                新しい会議室を作成する (ホスト)
+                新しいロビーを作成する (ホスト)
             </button>
             
             <div class="relative my-6">
@@ -77,10 +76,12 @@
             </div>
 
             <div class="space-y-4">
-                <label for="room-id-input" class="block text-sm font-medium text-gray-700">会議室IDで参加する</label>
+                <!-- v3: 文言変更 -->
+                <label for="room-id-input" class="block text-sm font-medium text-gray-700">ロビーIDで参加する</label>
                 <input type="text" id="room-id-input" placeholder="ホストから共有されたID" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <!-- v3: 文言変更 -->
                 <button id="join-room-btn" class="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5">
-                    会議室に参加する
+                    ロビーに参加する
                 </button>
             </div>
         </div>
@@ -248,9 +249,7 @@
             serverTimestamp,
             runTransaction
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        // v2: setLogLevel は必須ではないため削除
-        // import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-util.js";
-
+        
         // --- アプリケーションのグローバル変数 ---
         let db, auth;
         let currentUserId, currentRoomId, isHost = false;
@@ -3197,7 +3196,6 @@
             const app = initializeApp(firebaseConfig);
             auth = getAuth(app);
             db = getFirestore(app);
-            // v2: setLogLevel('Debug'); // デバッグログを有効化 (削除)
 
             handleAuthentication();
         });
@@ -3313,7 +3311,8 @@
                 return;
             }
             if (!roomId) {
-                showMessage("会議室IDを入力してください。", "error");
+                // v3: 文言変更
+                showMessage("ロビーIDを入力してください。", "error");
                 return;
             }
 
@@ -3323,7 +3322,8 @@
                 const roomSnap = await getDoc(roomRef);
 
                 if (!roomSnap.exists()) {
-                    showMessage("会議室が見つかりません。", "error");
+                    // v3: 文言変更
+                    showMessage("ロビーが見つかりません。", "error");
                     return;
                 }
 
@@ -3956,15 +3956,12 @@
             } catch (error) {
                 console.error("カード開示エラー:", error);
                 showMessage("カードの開示処理に失敗しました。", "error");
+
             }
         });
 
         // 抽選実行
         executeLottoBtn.addEventListener("click", async () => {
-            // TODO: 本来は重複しているカードごとに抽選ボタンを出すべきだが、
-            // この実装では簡略化し、現在の巡目(R/P)で "conflict" 状態の全グループに対して
-            // 一斉に抽選を行う。
-            
             const currentRound = localRoomData.currentRound;
             const currentPick = localRoomData.currentPick;
 
@@ -4041,9 +4038,7 @@
                 await batch.commit();
                 showMessage("抽選を実行しました。外れた人は再選択してください。", "success");
                 
-                // alert() は環境によってブロックされるため、表示を簡略化
                 console.log(lottoResultsMessage); 
-                // もし結果を全画面表示したい場合は、カスタムモーダルUIを別途実装する必要があります。
                 
             } catch (error)
              {
@@ -4075,11 +4070,6 @@
                 const roomRef = doc(db, "rooms", currentRoomId);
                 let nextRound = localRoomData.currentRound;
                 let nextPick = localRoomData.currentPick + 1;
-                
-                // TODO: ここでは単純に巡目を進めるが、本来は全参加者が1枚獲得したら
-                // ラウンドを進め、巡目をリセットするべきかもしれない。
-                // (例: 1巡目で全員獲得 -> R2, P1へ)
-                // 今回の実装では「獲得失敗者がいなくなるまで巡目を続ける」方式
                 
                 // 全員が獲得したので、次の「ラウンド」に進む
                 nextRound = localRoomData.currentRound + 1;
@@ -4115,7 +4105,6 @@
                  console.error("ドラフト終了エラー:", error);
              }
         });
-
 
     </script>
 
