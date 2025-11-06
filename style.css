@@ -1,0 +1,181 @@
+/* 基本設定 */
+body {
+  font-family: sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+}
+
+.hidden {
+  display: none!important;
+}
+
+/* ステップ1：ルーム参加画面 */
+#room-join-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+#username-input {
+  width: 90%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+#join-room-button {
+  width: 95%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ステップ2：ドラフトメイン画面 (CSS Grid Layout) */
+#draft-container {
+  display: grid;
+  /* 
+    レイアウト定義:
+    - 'header header' (ホストパネルが上部全体)
+    - 'main aside'   (グリッドとサイドバーが並ぶ)
+  */
+  grid-template-areas:
+    "header header"
+    "main aside";
+  /* 
+    列の幅:
+    - 1列目 (main) が 3fr (残りの領域の 3/4)
+    - 2列目 (aside) が 1fr (残りの領域の 1/4)
+  */
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: 100vh;
+  box-sizing: border-box; /* paddingを含めて100vhにする */
+}
+
+/* 各エリアの配置 */
+#host-admin-panel {
+  grid-area: header;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+#participant-grid-container {
+  grid-area: main;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-y: auto; /* 参加者が増えたらスクロール */
+}
+#sidebar-container {
+  grid-area: aside;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; /* サイドバー内の各エリアを縦に積む */
+  gap: 1rem;
+  overflow-y: auto; /* サイドバーが長くなったらスクロール */
+}
+
+/* 参加者グリッドのスタイル */
+#participant-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* レスポンシブグリッド */
+  gap: 15px;
+  align-content: start; /* 上から詰める */
+}
+.participant-card {
+  padding: 1.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* ★重要：ステータスに応じた色分け */
+.participant-card.status-picking {
+  border-color: #dc3545; /* 赤 (再ピック待ち) */
+  background-color: #f8d7da;
+}
+.participant-card.status-submitted {
+  border-color: #007bff; /* 青 (提出済み) */
+  background-color: #cfe2ff;
+}
+.participant-card.status-round_won {
+  border-color: #198754; /* 緑 (獲得済み) */
+  background-color: #d1e7dd;
+}
+
+/* カード選択リスト */
+#card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+#card-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+#card-list li:hover {
+  background-color: #f0f0f0;
+}
+#card-list li.selected {
+  background-color: #007bff;
+  color: white;
+}
+#card-list li.picked {
+  /* 誰かが獲得済みのカード */
+  background-color: #eee;
+  color: #999;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* アクティビティログ */
+#activity-log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 0.8rem;
+  color: #555;
+}
+#activity-log-list li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ステップ3：カード画像モーダル */
+#card-modal {
+  position: fixed; /* 画面に固定 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  pointer-events: none; /* マウス操作を無視する */
+}
+#modal-image {
+  max-width: 300px;
+  max-height: 400px;
+}
+
+/* カードリストの項目をホバーした時だけモーダルを表示 */
+#card-list li:hover > #card-modal {
+  display: block!important;
+}
