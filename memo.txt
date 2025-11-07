@@ -1,0 +1,2860 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyBQTAg9UosqFyqixNXPeNBndZXF4cqkw2k",
+  authDomain: "anokoro-draft-app.firebaseapp.com",
+  projectId: "anokoro-draft-app",
+  storageBucket: "anokoro-draft-app.firebasestorage.app",
+  messagingSenderId: "380768118987",
+  appId: "1:380768118987:web:1e880a9faa7207a942d34e"
+};
+[
+  {
+    "id": "うま",
+    "name": "うま",
+    "imageUrl": "/images/illustrations/うま_transparent.png"
+  },
+  {
+    "id": "おしゃべりなオウム",
+    "name": "おしゃべりなオウム",
+    "imageUrl": "/images/illustrations/おしゃべりなオウム_transparent.png"
+  },
+  {
+    "id": "おちゃめな魔法使い",
+    "name": "おちゃめな魔法使い",
+    "imageUrl": "/images/illustrations/おちゃめな魔法使い_transparent.png"
+  },
+  {
+    "id": "かたい貝",
+    "name": "かたい貝",
+    "imageUrl": "/images/illustrations/かたい貝_transparent.png"
+  },
+  {
+    "id": "かにもぐら先輩",
+    "name": "かにもぐら先輩",
+    "imageUrl": "/images/illustrations/かにもぐら先輩_transparent.png"
+  },
+  {
+    "id": "かわいいあざらし",
+    "name": "かわいいあざらし",
+    "imageUrl": "/images/illustrations/かわいいあざらし_transparent.png"
+  },
+  {
+    "id": "ぬらりひょん",
+    "name": "ぬらりひょん",
+    "imageUrl": "/images/illustrations/ぬらりひょん_transparent.png"
+  },
+  {
+    "id": "はりねずみ",
+    "name": "はりねずみ",
+    "imageUrl": "/images/illustrations/はりねずみ_transparent.png"
+  },
+  {
+    "id": "はりトラップ",
+    "name": "はりトラップ",
+    "imageUrl": "/images/illustrations/はりトラップ_transparent.png"
+  },
+  {
+    "id": "アイアンローダー",
+    "name": "アイアンローダー",
+    "imageUrl": "/images/illustrations/アイアンローダー_transparent.png"
+  },
+  {
+    "id": "アイスドラゴン",
+    "name": "アイスドラゴン",
+    "imageUrl": "/images/illustrations/アイスドラゴン_transparent.png"
+  },
+  {
+    "id": "アオガザミ",
+    "name": "アオガザミ",
+    "imageUrl": "/images/illustrations/アオガザミ_transparent.png"
+  },
+  {
+    "id": "アクセラモーター",
+    "name": "アクセラモーター",
+    "imageUrl": "/images/illustrations/アクセラモーター_transparent.png"
+  },
+  {
+    "id": "アックスゾンビ",
+    "name": "アックスゾンビ",
+    "imageUrl": "/images/illustrations/アックスゾンビ_transparent.png"
+  },
+  {
+    "id": "アマビエ",
+    "name": "アマビエ",
+    "imageUrl": "/images/illustrations/アマビエ_transparent.png"
+  },
+  {
+    "id": "イノシシ",
+    "name": "イノシシ",
+    "imageUrl": "/images/illustrations/イノシシ_transparent.png"
+  },
+  {
+    "id": "インパクトエネルギー",
+    "name": "インパクトエネルギー",
+    "imageUrl": "/images/illustrations/インパクトエネルギー_transparent.png"
+  },
+  {
+    "id": "インパクトガイド",
+    "name": "インパクトガイド",
+    "imageUrl": "/images/illustrations/インパクトガイド_transparent.png"
+  },
+  {
+    "id": "ウサギ",
+    "name": "ウサギ",
+    "imageUrl": "/images/illustrations/ウサギ_transparent.png"
+  },
+  {
+    "id": "ウミガメ",
+    "name": "ウミガメ",
+    "imageUrl": "/images/illustrations/ウミガメ_transparent.png"
+  },
+  {
+    "id": "エレメンタルエルフ",
+    "name": "エレメンタルエルフ",
+    "imageUrl": "/images/illustrations/エレメンタルエルフ_transparent.png"
+  },
+  {
+    "id": "オオカミ",
+    "name": "オオカミ",
+    "imageUrl": "/images/illustrations/オオカミ_transparent.png"
+  },
+  {
+    "id": "オーガ",
+    "name": "オーガ",
+    "imageUrl": "/images/illustrations/オーガ_transparent.png"
+  },
+  {
+    "id": "オーバーエネルギー",
+    "name": "オーバーエネルギー",
+    "imageUrl": "/images/illustrations/オーバーエネルギー_transparent.png"
+  },
+  {
+    "id": "カバ",
+    "name": "カバ",
+    "imageUrl": "/images/illustrations/カバ_transparent.png"
+  },
+  {
+    "id": "ガーゴイル",
+    "name": "ガーゴイル",
+    "imageUrl": "/images/illustrations/ガーゴイル_transparent.png"
+  },
+  {
+    "id": "キュアエネルギー",
+    "name": "キュアエネルギー",
+    "imageUrl": "/images/illustrations/キュアエネルギー_transparent.png"
+  },
+  {
+    "id": "キュリアス海",
+    "name": "キュリアス海",
+    "imageUrl": "/images/illustrations/キュリアス海_transparent.png"
+  },
+  {
+    "id": "ギガドラゴン",
+    "name": "ギガドラゴン",
+    "imageUrl": "/images/illustrations/ギガドラゴン_transparent.png"
+  },
+  {
+    "id": "クリスタルドラゴン",
+    "name": "クリスタルドラゴン",
+    "imageUrl": "/images/illustrations/クリスタルドラゴン_transparent.png"
+  },
+  {
+    "id": "グランドエネルギー",
+    "name": "グランドエネルギー",
+    "imageUrl": "/images/illustrations/グランドエネルギー_transparent.png"
+  },
+  {
+    "id": "コウモリ",
+    "name": "コウモリ",
+    "imageUrl": "/images/illustrations/コウモリ_transparent.png"
+  },
+  {
+    "id": "コバンザメ",
+    "name": "コバンザメ",
+    "imageUrl": "/images/illustrations/コバンザメ_transparent.png"
+  },
+  {
+    "id": "ゴブリン突撃！",
+    "name": "ゴブリン突撃！",
+    "imageUrl": "/images/illustrations/ゴブリン突撃！_transparent.png"
+  },
+  {
+    "id": "ゴーレム",
+    "name": "ゴーレム",
+    "imageUrl": "/images/illustrations/ゴーレム_transparent.png"
+  },
+  {
+    "id": "サウザンドラゴン",
+    "name": "サウザンドラゴン",
+    "imageUrl": "/images/illustrations/サウザンドラゴン_transparent.png"
+  },
+  {
+    "id": "サシバチ",
+    "name": "サシバチ",
+    "imageUrl": "/images/illustrations/サシバチ_transparent.png"
+  },
+  {
+    "id": "サソリ",
+    "name": "サソリ",
+    "imageUrl": "/images/illustrations/サソリ_transparent.png"
+  },
+  {
+    "id": "サンエネルギー",
+    "name": "サンエネルギー",
+    "imageUrl": "/images/illustrations/サンエネルギー_transparent.png"
+  },
+  {
+    "id": "ザコ魔法陣",
+    "name": "ザコ魔法陣",
+    "imageUrl": "/images/illustrations/ザコ魔法陣_transparent.png"
+  },
+  {
+    "id": "シカ",
+    "name": "シカ",
+    "imageUrl": "/images/illustrations/シカ_transparent.png"
+  },
+  {
+    "id": "シビレナマズ",
+    "name": "シビレナマズ",
+    "imageUrl": "/images/illustrations/シビレナマズ_transparent.png"
+  },
+  {
+    "id": "スピネルエネルギー",
+    "name": "スピネルエネルギー",
+    "imageUrl": "/images/illustrations/スピネルエネルギー_transparent.png"
+  },
+  {
+    "id": "スプリットエネルギー",
+    "name": "スプリットエネルギー",
+    "imageUrl": "/images/illustrations/スプリットエネルギー_transparent.png"
+  },
+  {
+    "id": "スマッシュエネルギー",
+    "name": "スマッシュエネルギー",
+    "imageUrl": "/images/illustrations/スマッシュエネルギー_transparent.png"
+  },
+  {
+    "id": "スライム",
+    "name": "スライム",
+    "imageUrl": "/images/illustrations/スライム_transparent.png"
+  },
+  {
+    "id": "スライムタンク",
+    "name": "スライムタンク",
+    "imageUrl": "/images/illustrations/スライムタンク_transparent.png"
+  },
+  {
+    "id": "スーパードラゴン",
+    "name": "スーパードラゴン",
+    "imageUrl": "/images/illustrations/スーパードラゴン_transparent.png"
+  },
+  {
+    "id": "ゼウス",
+    "name": "ゼウス",
+    "imageUrl": "/images/illustrations/ゼウス_transparent.png"
+  },
+  {
+    "id": "ソラトビペンギン",
+    "name": "ソラトビペンギン",
+    "imageUrl": "/images/illustrations/ソラトビペンギン_transparent.png"
+  },
+  {
+    "id": "ソリッドスライム",
+    "name": "ソリッドスライム",
+    "imageUrl": "/images/illustrations/ソリッドスライム_transparent.png"
+  },
+  {
+    "id": "ゾンビドラゴン",
+    "name": "ゾンビドラゴン",
+    "imageUrl": "/images/illustrations/ゾンビドラゴン_transparent.png"
+  },
+  {
+    "id": "ゾンビレックス",
+    "name": "ゾンビレックス",
+    "imageUrl": "/images/illustrations/ゾンビレックス_transparent.png"
+  },
+  {
+    "id": "タ―ジンバ海岸",
+    "name": "タ―ジンバ海岸",
+    "imageUrl": "/images/illustrations/タ―ジンバ海岸_transparent.png"
+  },
+  {
+    "id": "ダメージエネルギー",
+    "name": "ダメージエネルギー",
+    "imageUrl": "/images/illustrations/ダメージエネルギー_transparent.png"
+  },
+  {
+    "id": "ダークエネルギー",
+    "name": "ダークエネルギー",
+    "imageUrl": "/images/illustrations/ダークエネルギー_transparent.png"
+  },
+  {
+    "id": "チビドラゴン",
+    "name": "チビドラゴン",
+    "imageUrl": "/images/illustrations/チビドラゴン_transparent.png"
+  },
+  {
+    "id": "テントウムシ",
+    "name": "テントウムシ",
+    "imageUrl": "/images/illustrations/テントウムシ_transparent.png"
+  },
+  {
+    "id": "ディエティの月明",
+    "name": "ディエティの月明",
+    "imageUrl": "/images/illustrations/ディエティの月明_transparent.png"
+  },
+  {
+    "id": "デカスライム",
+    "name": "デカスライム",
+    "imageUrl": "/images/illustrations/デカスライム_transparent.png"
+  },
+  {
+    "id": "トライデントマスター",
+    "name": "トライデントマスター",
+    "imageUrl": "/images/illustrations/トライデントマスター_transparent.png"
+  },
+  {
+    "id": "ドラゴン",
+    "name": "ドラゴン",
+    "imageUrl": "/images/illustrations/ドラゴン_transparent.png"
+  },
+  {
+    "id": "ドラゴンヘッド",
+    "name": "ドラゴンヘッド",
+    "imageUrl": "/images/illustrations/ドラゴンヘッド_transparent.png"
+  },
+  {
+    "id": "ドローエネルギー",
+    "name": "ドローエネルギー",
+    "imageUrl": "/images/illustrations/ドローエネルギー_transparent.png"
+  },
+  {
+    "id": "ネクロマンサー",
+    "name": "ネクロマンサー",
+    "imageUrl": "/images/illustrations/ネクロマンサー_transparent.png"
+  },
+  {
+    "id": "ハイドロエネルギー",
+    "name": "ハイドロエネルギー",
+    "imageUrl": "/images/illustrations/ハイドロエネルギー_transparent.png"
+  },
+  {
+    "id": "ハナバチ",
+    "name": "ハナバチ",
+    "imageUrl": "/images/illustrations/ハナバチ_transparent.png"
+  },
+  {
+    "id": "ハブタエラプトル",
+    "name": "ハブタエラプトル",
+    "imageUrl": "/images/illustrations/ハブタエラプトル_transparent.png"
+  },
+  {
+    "id": "ハンドレッドラゴン",
+    "name": "ハンドレッドラゴン",
+    "imageUrl": "/images/illustrations/ハンドレッドラゴン_transparent.png"
+  },
+  {
+    "id": "バブルスライム",
+    "name": "バブルスライム",
+    "imageUrl": "/images/illustrations/バブルスライム_transparent.png"
+  },
+  {
+    "id": "バーンドラゴン",
+    "name": "バーンドラゴン",
+    "imageUrl": "/images/illustrations/バーンドラゴン_transparent.png"
+  },
+  {
+    "id": "パワーエネルギー",
+    "name": "パワーエネルギー",
+    "imageUrl": "/images/illustrations/パワーエネルギー_transparent.png"
+  },
+  {
+    "id": "パーツエネルギー",
+    "name": "パーツエネルギー",
+    "imageUrl": "/images/illustrations/パーツエネルギー_transparent.png"
+  },
+  {
+    "id": "ヒツジ",
+    "name": "ヒツジ",
+    "imageUrl": "/images/illustrations/ヒツジ_transparent.png"
+  },
+  {
+    "id": "ヒールエネルギー",
+    "name": "ヒールエネルギー",
+    "imageUrl": "/images/illustrations/ヒールエネルギー_transparent.png"
+  },
+  {
+    "id": "ファイアドラゴン",
+    "name": "ファイアドラゴン",
+    "imageUrl": "/images/illustrations/ファイアドラゴン_transparent.png"
+  },
+  {
+    "id": "フェアリー",
+    "name": "フェアリー",
+    "imageUrl": "/images/illustrations/フェアリー_transparent.png"
+  },
+  {
+    "id": "フェアリードラゴン",
+    "name": "フェアリードラゴン",
+    "imageUrl": "/images/illustrations/フェアリードラゴン_transparent.png"
+  },
+  {
+    "id": "フォレストエネルギー",
+    "name": "フォレストエネルギー",
+    "imageUrl": "/images/illustrations/フォレストエネルギー_transparent.png"
+  },
+  {
+    "id": "ブラックグリフォン",
+    "name": "ブラックグリフォン",
+    "imageUrl": "/images/illustrations/ブラックグリフォン_transparent.png"
+  },
+  {
+    "id": "ブレイズスラスター",
+    "name": "ブレイズスラスター",
+    "imageUrl": "/images/illustrations/ブレイズスラスター_transparent.png"
+  },
+  {
+    "id": "ブレイズドラゴン",
+    "name": "ブレイズドラゴン",
+    "imageUrl": "/images/illustrations/ブレイズドラゴン_transparent.png"
+  },
+  {
+    "id": "ブレイブエネルギー",
+    "name": "ブレイブエネルギー",
+    "imageUrl": "/images/illustrations/ブレイブエネルギー_transparent.png"
+  },
+  {
+    "id": "ブレードゾンビ",
+    "name": "ブレードゾンビ",
+    "imageUrl": "/images/illustrations/ブレードゾンビ_transparent.png"
+  },
+  {
+    "id": "ブーストエネルギー",
+    "name": "ブーストエネルギー",
+    "imageUrl": "/images/illustrations/ブーストエネルギー_transparent.png"
+  },
+  {
+    "id": "プラスラッシャー",
+    "name": "プラスラッシャー",
+    "imageUrl": "/images/illustrations/プラスラッシャー_transparent.png"
+  },
+  {
+    "id": "ヘビ",
+    "name": "ヘビ",
+    "imageUrl": "/images/illustrations/ヘビ_transparent.png"
+  },
+  {
+    "id": "ヘヴンエネルギー",
+    "name": "ヘヴンエネルギー",
+    "imageUrl": "/images/illustrations/ヘヴンエネルギー_transparent.png"
+  },
+  {
+    "id": "ホワイトグリフォン",
+    "name": "ホワイトグリフォン",
+    "imageUrl": "/images/illustrations/ホワイトグリフォン_transparent.png"
+  },
+  {
+    "id": "ボムゾンビ",
+    "name": "ボムゾンビ",
+    "imageUrl": "/images/illustrations/ボムゾンビ_transparent.png"
+  },
+  {
+    "id": "ボルケーノエネルギー",
+    "name": "ボルケーノエネルギー",
+    "imageUrl": "/images/illustrations/ボルケーノエネルギー_transparent.png"
+  },
+  {
+    "id": "ポイズンゾンビ",
+    "name": "ポイズンゾンビ",
+    "imageUrl": "/images/illustrations/ポイズンゾンビ_transparent.png"
+  },
+  {
+    "id": "マイナスナイパー",
+    "name": "マイナスナイパー",
+    "imageUrl": "/images/illustrations/マイナスナイパー_transparent.png"
+  },
+  {
+    "id": "マスターゴブリン",
+    "name": "マスターゴブリン",
+    "imageUrl": "/images/illustrations/マスターゴブリン_transparent.png"
+  },
+  {
+    "id": "マリンエネルギー",
+    "name": "マリンエネルギー",
+    "imageUrl": "/images/illustrations/マリンエネルギー_transparent.png"
+  },
+  {
+    "id": "ミツバチ",
+    "name": "ミツバチ",
+    "imageUrl": "/images/illustrations/ミツバチ_transparent.png"
+  },
+  {
+    "id": "ミノタウロス",
+    "name": "ミノタウロス",
+    "imageUrl": "/images/illustrations/ミノタウロス_transparent.png"
+  },
+  {
+    "id": "ムゲンエネルギー",
+    "name": "ムゲンエネルギー",
+    "imageUrl": "/images/illustrations/ムゲンエネルギー_transparent.png"
+  },
+  {
+    "id": "ラヴァエネルギー",
+    "name": "ラヴァエネルギー",
+    "imageUrl": "/images/illustrations/ラヴァエネルギー_transparent.png"
+  },
+  {
+    "id": "リチャージエネルギー",
+    "name": "リチャージエネルギー",
+    "imageUrl": "/images/illustrations/リチャージエネルギー_transparent.png"
+  },
+  {
+    "id": "リヴァイアサン",
+    "name": "リヴァイアサン",
+    "imageUrl": "/images/illustrations/リヴァイアサン_transparent.png"
+  },
+  {
+    "id": "レインボーマジシャン",
+    "name": "レインボーマジシャン",
+    "imageUrl": "/images/illustrations/レインボーマジシャン_transparent.png"
+  },
+  {
+    "id": "レイヴンエネルギー",
+    "name": "レイヴンエネルギー",
+    "imageUrl": "/images/illustrations/レイヴンエネルギー_transparent.png"
+  },
+  {
+    "id": "ワイバーン",
+    "name": "ワイバーン",
+    "imageUrl": "/images/illustrations/ワイバーン_transparent.png"
+  },
+  {
+    "id": "一斗缶マン",
+    "name": "一斗缶マン",
+    "imageUrl": "/images/illustrations/一斗缶マン_transparent.png"
+  },
+  {
+    "id": "万緑の巨象",
+    "name": "万緑の巨象",
+    "imageUrl": "/images/illustrations/万緑の巨象_transparent.png"
+  },
+  {
+    "id": "三剣の意志",
+    "name": "三剣の意志",
+    "imageUrl": "/images/illustrations/三剣の意志_transparent.png"
+  },
+  {
+    "id": "丸太のゴーレム",
+    "name": "丸太のゴーレム",
+    "imageUrl": "/images/illustrations/丸太のゴーレム_transparent.png"
+  },
+  {
+    "id": "丸太騙し",
+    "name": "丸太騙し",
+    "imageUrl": "/images/illustrations/丸太騙し_transparent.png"
+  },
+  {
+    "id": "二者択双",
+    "name": "二者択双",
+    "imageUrl": "/images/illustrations/二者択双_transparent.png"
+  },
+  {
+    "id": "亞の祠",
+    "name": "亞の祠",
+    "imageUrl": "/images/illustrations/亞の祠_transparent.png"
+  },
+  {
+    "id": "人喰い鮫",
+    "name": "人喰い鮫",
+    "imageUrl": "/images/illustrations/人喰い鮫_transparent.png"
+  },
+  {
+    "id": "人工生命 448号",
+    "name": "人工生命 448号",
+    "imageUrl": "/images/illustrations/人工生命 448号_transparent.png"
+  },
+  {
+    "id": "人形の一撃",
+    "name": "人形の一撃",
+    "imageUrl": "/images/illustrations/人形の一撃_transparent.png"
+  },
+  {
+    "id": "人魚の涙",
+    "name": "人魚の涙",
+    "imageUrl": "/images/illustrations/人魚の涙_transparent.png"
+  },
+  {
+    "id": "今、夢の中で",
+    "name": "今、夢の中で",
+    "imageUrl": "/images/illustrations/今、夢の中で_transparent.png"
+  },
+  {
+    "id": "仮面英雄バンブート",
+    "name": "仮面英雄バンブート",
+    "imageUrl": "/images/illustrations/仮面英雄バンブート_transparent.png"
+  },
+  {
+    "id": "休息",
+    "name": "休息",
+    "imageUrl": "/images/illustrations/休息_transparent.png"
+  },
+  {
+    "id": "供物魔法陣",
+    "name": "供物魔法陣",
+    "imageUrl": "/images/illustrations/供物魔法陣_transparent.png"
+  },
+  {
+    "id": "信じる心",
+    "name": "信じる心",
+    "imageUrl": "/images/illustrations/信じる心_transparent.png"
+  },
+  {
+    "id": "傘化け",
+    "name": "傘化け",
+    "imageUrl": "/images/illustrations/傘化け_transparent.png"
+  },
+  {
+    "id": "傷薬",
+    "name": "傷薬",
+    "imageUrl": "/images/illustrations/傷薬_transparent.png"
+  },
+  {
+    "id": "働きアリ",
+    "name": "働きアリ",
+    "imageUrl": "/images/illustrations/働きアリ_transparent.png"
+  },
+  {
+    "id": "光のカーテン",
+    "name": "光のカーテン",
+    "imageUrl": "/images/illustrations/光のカーテン_transparent.png"
+  },
+  {
+    "id": "光の蝕み",
+    "name": "光の蝕み",
+    "imageUrl": "/images/illustrations/光の蝕み_transparent.png"
+  },
+  {
+    "id": "光天使ナディ",
+    "name": "光天使ナディ",
+    "imageUrl": "/images/illustrations/光天使ナディ_transparent.png"
+  },
+  {
+    "id": "六星門",
+    "name": "六星門",
+    "imageUrl": "/images/illustrations/六星門_transparent.png"
+  },
+  {
+    "id": "共鳴",
+    "name": "共鳴",
+    "imageUrl": "/images/illustrations/共鳴_transparent.png"
+  },
+  {
+    "id": "兵隊アリ",
+    "name": "兵隊アリ",
+    "imageUrl": "/images/illustrations/兵隊アリ_transparent.png"
+  },
+  {
+    "id": "兵龍マウナ",
+    "name": "兵龍マウナ",
+    "imageUrl": "/images/illustrations/兵龍マウナ_transparent.png"
+  },
+  {
+    "id": "円海島",
+    "name": "円海島",
+    "imageUrl": "/images/illustrations/円海島_transparent.png"
+  },
+  {
+    "id": "円盾の守護者",
+    "name": "円盾の守護者",
+    "imageUrl": "/images/illustrations/円盾の守護者_transparent.png"
+  },
+  {
+    "id": "再起の天使",
+    "name": "再起の天使",
+    "imageUrl": "/images/illustrations/再起の天使_transparent.png"
+  },
+  {
+    "id": "冒険者",
+    "name": "冒険者",
+    "imageUrl": "/images/illustrations/冒険者_transparent.png"
+  },
+  {
+    "id": "冷たき愛",
+    "name": "冷たき愛",
+    "imageUrl": "/images/illustrations/冷たき愛_transparent.png"
+  },
+  {
+    "id": "凍りスライム",
+    "name": "凍りスライム",
+    "imageUrl": "/images/illustrations/凍りスライム_transparent.png"
+  },
+  {
+    "id": "凍土の王",
+    "name": "凍土の王",
+    "imageUrl": "/images/illustrations/凍土の王_transparent.png"
+  },
+  {
+    "id": "凶暴化",
+    "name": "凶暴化",
+    "imageUrl": "/images/illustrations/凶暴化_transparent.png"
+  },
+  {
+    "id": "刀羽のプテラ",
+    "name": "刀羽のプテラ",
+    "imageUrl": "/images/illustrations/刀羽のプテラ_transparent.png"
+  },
+  {
+    "id": "刃尾の竜",
+    "name": "刃尾の竜",
+    "imageUrl": "/images/illustrations/刃尾の竜_transparent.png"
+  },
+  {
+    "id": "初級魔法の教え",
+    "name": "初級魔法の教え",
+    "imageUrl": "/images/illustrations/初級魔法の教え_transparent.png"
+  },
+  {
+    "id": "剛健なツリーフォーク",
+    "name": "剛健なツリーフォーク",
+    "imageUrl": "/images/illustrations/剛健なツリーフォーク_transparent.png"
+  },
+  {
+    "id": "剣ゴブリン",
+    "name": "剣ゴブリン",
+    "imageUrl": "/images/illustrations/剣ゴブリン_transparent.png"
+  },
+  {
+    "id": "創竜術",
+    "name": "創竜術",
+    "imageUrl": "/images/illustrations/創竜術_transparent.png"
+  },
+  {
+    "id": "力の吸収",
+    "name": "力の吸収",
+    "imageUrl": "/images/illustrations/力の吸収_transparent.png"
+  },
+  {
+    "id": "南瓜の魔物",
+    "name": "南瓜の魔物",
+    "imageUrl": "/images/illustrations/南瓜の魔物_transparent.png"
+  },
+  {
+    "id": "博打魔機 バチカ",
+    "name": "博打魔機 バチカ",
+    "imageUrl": "/images/illustrations/博打魔機 バチカ_transparent.png"
+  },
+  {
+    "id": "原始の種",
+    "name": "原始の種",
+    "imageUrl": "/images/illustrations/原始の種_transparent.png"
+  },
+  {
+    "id": "原石杖の魔術師",
+    "name": "原石杖の魔術師",
+    "imageUrl": "/images/illustrations/原石杖の魔術師_transparent.png"
+  },
+  {
+    "id": "双鋏型掘削機",
+    "name": "双鋏型掘削機",
+    "imageUrl": "/images/illustrations/双鋏型掘削機_transparent.png"
+  },
+  {
+    "id": "双頭ゾンビ",
+    "name": "双頭ゾンビ",
+    "imageUrl": "/images/illustrations/双頭ゾンビ_transparent.png"
+  },
+  {
+    "id": "古びた加速部品",
+    "name": "古びた加速部品",
+    "imageUrl": "/images/illustrations/古びた加速部品_transparent.png"
+  },
+  {
+    "id": "古びた地図",
+    "name": "古びた地図",
+    "imageUrl": "/images/illustrations/古びた地図_transparent.png"
+  },
+  {
+    "id": "古びた携帯電池",
+    "name": "古びた携帯電池",
+    "imageUrl": "/images/illustrations/古びた携帯電池_transparent.png"
+  },
+  {
+    "id": "古びた検知部品",
+    "name": "古びた検知部品",
+    "imageUrl": "/images/illustrations/古びた検知部品_transparent.png"
+  },
+  {
+    "id": "古びた航海図",
+    "name": "古びた航海図",
+    "imageUrl": "/images/illustrations/古びた航海図_transparent.png"
+  },
+  {
+    "id": "古びた設計図",
+    "name": "古びた設計図",
+    "imageUrl": "/images/illustrations/古びた設計図_transparent.png"
+  },
+  {
+    "id": "古びた駆動部品",
+    "name": "古びた駆動部品",
+    "imageUrl": "/images/illustrations/古びた駆動部品_transparent.png"
+  },
+  {
+    "id": "古代樹の魔物",
+    "name": "古代樹の魔物",
+    "imageUrl": "/images/illustrations/古代樹の魔物_transparent.png"
+  },
+  {
+    "id": "古城の呪剣",
+    "name": "古城の呪剣",
+    "imageUrl": "/images/illustrations/古城の呪剣_transparent.png"
+  },
+  {
+    "id": "呆れたエイ",
+    "name": "呆れたエイ",
+    "imageUrl": "/images/illustrations/呆れたエイ_transparent.png"
+  },
+  {
+    "id": "呪書の悪魔",
+    "name": "呪書の悪魔",
+    "imageUrl": "/images/illustrations/呪書の悪魔_transparent.png"
+  },
+  {
+    "id": "呪術の仮面",
+    "name": "呪術の仮面",
+    "imageUrl": "/images/illustrations/呪術の仮面_transparent.png"
+  },
+  {
+    "id": "呼竜術",
+    "name": "呼竜術",
+    "imageUrl": "/images/illustrations/呼竜術_transparent.png"
+  },
+  {
+    "id": "命の天樹",
+    "name": "命の天樹",
+    "imageUrl": "/images/illustrations/命の天樹_transparent.png"
+  },
+  {
+    "id": "回生の天使",
+    "name": "回生の天使",
+    "imageUrl": "/images/illustrations/回生の天使_transparent.png"
+  },
+  {
+    "id": "回転刃",
+    "name": "回転刃",
+    "imageUrl": "/images/illustrations/回転刃_transparent.png"
+  },
+  {
+    "id": "因幡の白うさぎ",
+    "name": "因幡の白うさぎ",
+    "imageUrl": "/images/illustrations/因幡の白うさぎ_transparent.png"
+  },
+  {
+    "id": "地割れ",
+    "name": "地割れ",
+    "imageUrl": "/images/illustrations/地割れ_transparent.png"
+  },
+  {
+    "id": "地図ゴブリン",
+    "name": "地図ゴブリン",
+    "imageUrl": "/images/illustrations/地図ゴブリン_transparent.png"
+  },
+  {
+    "id": "垢舐め",
+    "name": "垢舐め",
+    "imageUrl": "/images/illustrations/垢舐め_transparent.png"
+  },
+  {
+    "id": "堅盾のトリケラ",
+    "name": "堅盾のトリケラ",
+    "imageUrl": "/images/illustrations/堅盾のトリケラ_transparent.png"
+  },
+  {
+    "id": "増殖研究",
+    "name": "増殖研究",
+    "imageUrl": "/images/illustrations/増殖研究_transparent.png"
+  },
+  {
+    "id": "夜の騎士",
+    "name": "夜の騎士",
+    "imageUrl": "/images/illustrations/夜の騎士_transparent.png"
+  },
+  {
+    "id": "夢の思念体",
+    "name": "夢の思念体",
+    "imageUrl": "/images/illustrations/夢の思念体_transparent.png"
+  },
+  {
+    "id": "夢の昇華",
+    "name": "夢の昇華",
+    "imageUrl": "/images/illustrations/夢の昇華_transparent.png"
+  },
+  {
+    "id": "夢の案内人",
+    "name": "夢の案内人",
+    "imageUrl": "/images/illustrations/夢の案内人_transparent.png"
+  },
+  {
+    "id": "夢の足跡",
+    "name": "夢の足跡",
+    "imageUrl": "/images/illustrations/夢の足跡_transparent.png"
+  },
+  {
+    "id": "夢の顕現",
+    "name": "夢の顕現",
+    "imageUrl": "/images/illustrations/夢の顕現_transparent.png"
+  },
+  {
+    "id": "夢幻の管理人",
+    "name": "夢幻の管理人",
+    "imageUrl": "/images/illustrations/夢幻の管理人_transparent.png"
+  },
+  {
+    "id": "夢幻竜",
+    "name": "夢幻竜",
+    "imageUrl": "/images/illustrations/夢幻竜_transparent.png"
+  },
+  {
+    "id": "夢見屋 亡者＆研究者",
+    "name": "夢見屋 亡者＆研究者",
+    "imageUrl": "/images/illustrations/夢見屋 亡者＆研究者_transparent.png"
+  },
+  {
+    "id": "大槍角の鮫",
+    "name": "大槍角の鮫",
+    "imageUrl": "/images/illustrations/大槍角の鮫_transparent.png"
+  },
+  {
+    "id": "大盾の幽霊",
+    "name": "大盾の幽霊",
+    "imageUrl": "/images/illustrations/大盾の幽霊_transparent.png"
+  },
+  {
+    "id": "大翼のハーピー",
+    "name": "大翼のハーピー",
+    "imageUrl": "/images/illustrations/大翼のハーピー_transparent.png"
+  },
+  {
+    "id": "大胆な潜伏",
+    "name": "大胆な潜伏",
+    "imageUrl": "/images/illustrations/大胆な潜伏_transparent.png"
+  },
+  {
+    "id": "大自然の超越",
+    "name": "大自然の超越",
+    "imageUrl": "/images/illustrations/大自然の超越_transparent.png"
+  },
+  {
+    "id": "大蛇",
+    "name": "大蛇",
+    "imageUrl": "/images/illustrations/大蛇_transparent.png"
+  },
+  {
+    "id": "天使スライム",
+    "name": "天使スライム",
+    "imageUrl": "/images/illustrations/天使スライム_transparent.png"
+  },
+  {
+    "id": "天啓",
+    "name": "天啓",
+    "imageUrl": "/images/illustrations/天啓_transparent.png"
+  },
+  {
+    "id": "天界の泉",
+    "name": "天界の泉",
+    "imageUrl": "/images/illustrations/天界の泉_transparent.png"
+  },
+  {
+    "id": "天竜剣",
+    "name": "天竜剣",
+    "imageUrl": "/images/illustrations/天竜剣_transparent.png"
+  },
+  {
+    "id": "天翔共鳴",
+    "name": "天翔共鳴",
+    "imageUrl": "/images/illustrations/天翔共鳴_transparent.png"
+  },
+  {
+    "id": "天逆鉾の破片",
+    "name": "天逆鉾の破片",
+    "imageUrl": "/images/illustrations/天逆鉾の破片_transparent.png"
+  },
+  {
+    "id": "天鎧竜ウラノス",
+    "name": "天鎧竜ウラノス",
+    "imageUrl": "/images/illustrations/天鎧竜ウラノス_transparent.png"
+  },
+  {
+    "id": "天鎧騎士シエロ",
+    "name": "天鎧騎士シエロ",
+    "imageUrl": "/images/illustrations/天鎧騎士シエロ_transparent.png"
+  },
+  {
+    "id": "奇怪な少女",
+    "name": "奇怪な少女",
+    "imageUrl": "/images/illustrations/奇怪な少女_transparent.png"
+  },
+  {
+    "id": "女王蟻",
+    "name": "女王蟻",
+    "imageUrl": "/images/illustrations/女王蟻_transparent.png"
+  },
+  {
+    "id": "子供オーガ",
+    "name": "子供オーガ",
+    "imageUrl": "/images/illustrations/子供オーガ_transparent.png"
+  },
+  {
+    "id": "存在の照明",
+    "name": "存在の照明",
+    "imageUrl": "/images/illustrations/存在の照明_transparent.png"
+  },
+  {
+    "id": "孤独",
+    "name": "孤独",
+    "imageUrl": "/images/illustrations/孤独_transparent.png"
+  },
+  {
+    "id": "宇宙の異形",
+    "name": "宇宙の異形",
+    "imageUrl": "/images/illustrations/宇宙の異形_transparent.png"
+  },
+  {
+    "id": "安息の導き",
+    "name": "安息の導き",
+    "imageUrl": "/images/illustrations/安息の導き_transparent.png"
+  },
+  {
+    "id": "完全燃焼",
+    "name": "完全燃焼",
+    "imageUrl": "/images/illustrations/完全燃焼_transparent.png"
+  },
+  {
+    "id": "宝彩蝶 紅",
+    "name": "宝彩蝶 紅",
+    "imageUrl": "/images/illustrations/宝彩蝶 紅_transparent.png"
+  },
+  {
+    "id": "宝彩蝶 蒼",
+    "name": "宝彩蝶 蒼",
+    "imageUrl": "/images/illustrations/宝彩蝶 蒼_transparent.png"
+  },
+  {
+    "id": "宝彩蝶 黄",
+    "name": "宝彩蝶 黄",
+    "imageUrl": "/images/illustrations/宝彩蝶 黄_transparent.png"
+  },
+  {
+    "id": "宝石姫サファイア",
+    "name": "宝石姫サファイア",
+    "imageUrl": "/images/illustrations/宝石姫サファイア_transparent.png"
+  },
+  {
+    "id": "宝石姫トパーズ",
+    "name": "宝石姫トパーズ",
+    "imageUrl": "/images/illustrations/宝石姫トパーズ_transparent.png"
+  },
+  {
+    "id": "宝石姫ルビー",
+    "name": "宝石姫ルビー",
+    "imageUrl": "/images/illustrations/宝石姫ルビー_transparent.png"
+  },
+  {
+    "id": "宵闇の水面",
+    "name": "宵闇の水面",
+    "imageUrl": "/images/illustrations/宵闇の水面_transparent.png"
+  },
+  {
+    "id": "封印されし悪魔像",
+    "name": "封印されし悪魔像",
+    "imageUrl": "/images/illustrations/封印されし悪魔像_transparent.png"
+  },
+  {
+    "id": "導く尖晶石",
+    "name": "導く尖晶石",
+    "imageUrl": "/images/illustrations/導く尖晶石_transparent.png"
+  },
+  {
+    "id": "小機の濁流",
+    "name": "小機の濁流",
+    "imageUrl": "/images/illustrations/小機の濁流_transparent.png"
+  },
+  {
+    "id": "尖晶石の人形",
+    "name": "尖晶石の人形",
+    "imageUrl": "/images/illustrations/尖晶石の人形_transparent.png"
+  },
+  {
+    "id": "尖晶石の晶翼",
+    "name": "尖晶石の晶翼",
+    "imageUrl": "/images/illustrations/尖晶石の晶翼_transparent.png"
+  },
+  {
+    "id": "尖晶石の精霊",
+    "name": "尖晶石の精霊",
+    "imageUrl": "/images/illustrations/尖晶石の精霊_transparent.png"
+  },
+  {
+    "id": "屍動鬼",
+    "name": "屍動鬼",
+    "imageUrl": "/images/illustrations/屍動鬼_transparent.png"
+  },
+  {
+    "id": "山脈崩し",
+    "name": "山脈崩し",
+    "imageUrl": "/images/illustrations/山脈崩し_transparent.png"
+  },
+  {
+    "id": "山麓の補給兵",
+    "name": "山麓の補給兵",
+    "imageUrl": "/images/illustrations/山麓の補給兵_transparent.png"
+  },
+  {
+    "id": "岩の人形",
+    "name": "岩の人形",
+    "imageUrl": "/images/illustrations/岩の人形_transparent.png"
+  },
+  {
+    "id": "崖上からの奇襲",
+    "name": "崖上からの奇襲",
+    "imageUrl": "/images/illustrations/崖上からの奇襲_transparent.png"
+  },
+  {
+    "id": "崖上の防衛砦",
+    "name": "崖上の防衛砦",
+    "imageUrl": "/images/illustrations/崖上の防衛砦_transparent.png"
+  },
+  {
+    "id": "嵐流撃",
+    "name": "嵐流撃",
+    "imageUrl": "/images/illustrations/嵐流撃_transparent.png"
+  },
+  {
+    "id": "巨大な門",
+    "name": "巨大な門",
+    "imageUrl": "/images/illustrations/巨大な門_transparent.png"
+  },
+  {
+    "id": "巨大破砕機",
+    "name": "巨大破砕機",
+    "imageUrl": "/images/illustrations/巨大破砕機_transparent.png"
+  },
+  {
+    "id": "巨大魚の波",
+    "name": "巨大魚の波",
+    "imageUrl": "/images/illustrations/巨大魚の波_transparent.png"
+  },
+  {
+    "id": "希う尖晶石",
+    "name": "希う尖晶石",
+    "imageUrl": "/images/illustrations/希う尖晶石_transparent.png"
+  },
+  {
+    "id": "帯電の矢",
+    "name": "帯電の矢",
+    "imageUrl": "/images/illustrations/帯電の矢_transparent.png"
+  },
+  {
+    "id": "平穏の使者",
+    "name": "平穏の使者",
+    "imageUrl": "/images/illustrations/平穏の使者_transparent.png"
+  },
+  {
+    "id": "幸運を呼ぶ鳥",
+    "name": "幸運を呼ぶ鳥",
+    "imageUrl": "/images/illustrations/幸運を呼ぶ鳥_transparent.png"
+  },
+  {
+    "id": "幽体化",
+    "name": "幽体化",
+    "imageUrl": "/images/illustrations/幽体化_transparent.png"
+  },
+  {
+    "id": "弩弓の騎士",
+    "name": "弩弓の騎士",
+    "imageUrl": "/images/illustrations/弩弓の騎士_transparent.png"
+  },
+  {
+    "id": "弱者の嘆き",
+    "name": "弱者の嘆き",
+    "imageUrl": "/images/illustrations/弱者の嘆き_transparent.png"
+  },
+  {
+    "id": "弱者の爆発",
+    "name": "弱者の爆発",
+    "imageUrl": "/images/illustrations/弱者の爆発_transparent.png"
+  },
+  {
+    "id": "弱者の結束",
+    "name": "弱者の結束",
+    "imageUrl": "/images/illustrations/弱者の結束_transparent.png"
+  },
+  {
+    "id": "強襲",
+    "name": "強襲",
+    "imageUrl": "/images/illustrations/強襲_transparent.png"
+  },
+  {
+    "id": "彩戦紙インディゴ",
+    "name": "彩戦紙インディゴ",
+    "imageUrl": "/images/illustrations/彩戦紙インディゴ_transparent.png"
+  },
+  {
+    "id": "彩戦紙トパーズ",
+    "name": "彩戦紙トパーズ",
+    "imageUrl": "/images/illustrations/彩戦紙トパーズ_transparent.png"
+  },
+  {
+    "id": "彩戦紙ネイビー",
+    "name": "彩戦紙ネイビー",
+    "imageUrl": "/images/illustrations/彩戦紙ネイビー_transparent.png"
+  },
+  {
+    "id": "彩戦紙マゼンタ",
+    "name": "彩戦紙マゼンタ",
+    "imageUrl": "/images/illustrations/彩戦紙マゼンタ_transparent.png"
+  },
+  {
+    "id": "彼岸の精霊 カナロア",
+    "name": "彼岸の精霊 カナロア",
+    "imageUrl": "/images/illustrations/彼岸の精霊 カナロア_transparent.png"
+  },
+  {
+    "id": "彼岸の魔女 リリィ",
+    "name": "彼岸の魔女 リリィ",
+    "imageUrl": "/images/illustrations/彼岸の魔女 リリィ_transparent.png"
+  },
+  {
+    "id": "徴兵",
+    "name": "徴兵",
+    "imageUrl": "/images/illustrations/徴兵_transparent.png"
+  },
+  {
+    "id": "怠惰な海賊嬢",
+    "name": "怠惰な海賊嬢",
+    "imageUrl": "/images/illustrations/怠惰な海賊嬢_transparent.png"
+  },
+  {
+    "id": "怪力の甲虫",
+    "name": "怪力の甲虫",
+    "imageUrl": "/images/illustrations/怪力の甲虫_transparent.png"
+  },
+  {
+    "id": "怪物蟹",
+    "name": "怪物蟹",
+    "imageUrl": "/images/illustrations/怪物蟹_transparent.png"
+  },
+  {
+    "id": "怪竜の書",
+    "name": "怪竜の書",
+    "imageUrl": "/images/illustrations/怪竜の書_transparent.png"
+  },
+  {
+    "id": "悪意の芽吹",
+    "name": "悪意の芽吹",
+    "imageUrl": "/images/illustrations/悪意の芽吹_transparent.png"
+  },
+  {
+    "id": "悪戯フェアリー",
+    "name": "悪戯フェアリー",
+    "imageUrl": "/images/illustrations/悪戯フェアリー_transparent.png"
+  },
+  {
+    "id": "悪魔な注文",
+    "name": "悪魔な注文",
+    "imageUrl": "/images/illustrations/悪魔な注文_transparent.png"
+  },
+  {
+    "id": "悪魔の契約",
+    "name": "悪魔の契約",
+    "imageUrl": "/images/illustrations/悪魔の契約_transparent.png"
+  },
+  {
+    "id": "惨然槍の邪竜",
+    "name": "惨然槍の邪竜",
+    "imageUrl": "/images/illustrations/惨然槍の邪竜_transparent.png"
+  },
+  {
+    "id": "愛おしき放課後",
+    "name": "愛おしき放課後",
+    "imageUrl": "/images/illustrations/愛おしき放課後_transparent.png"
+  },
+  {
+    "id": "慈愛フェアリー",
+    "name": "慈愛フェアリー",
+    "imageUrl": "/images/illustrations/慈愛フェアリー_transparent.png"
+  },
+  {
+    "id": "成長",
+    "name": "成長",
+    "imageUrl": "/images/illustrations/成長_transparent.png"
+  },
+  {
+    "id": "戒律の僧",
+    "name": "戒律の僧",
+    "imageUrl": "/images/illustrations/戒律の僧_transparent.png"
+  },
+  {
+    "id": "戦車ゴブリン",
+    "name": "戦車ゴブリン",
+    "imageUrl": "/images/illustrations/戦車ゴブリン_transparent.png"
+  },
+  {
+    "id": "戦闘兵器：B",
+    "name": "戦闘兵器：B",
+    "imageUrl": "/images/illustrations/戦闘兵器：B_transparent.png"
+  },
+  {
+    "id": "戦闘兵器：C",
+    "name": "戦闘兵器：C",
+    "imageUrl": "/images/illustrations/戦闘兵器：C_transparent.png"
+  },
+  {
+    "id": "戦闘兵器：H",
+    "name": "戦闘兵器：H",
+    "imageUrl": "/images/illustrations/戦闘兵器：H_transparent.png"
+  },
+  {
+    "id": "戦闘兵器：SR",
+    "name": "戦闘兵器：SR",
+    "imageUrl": "/images/illustrations/戦闘兵器：SR_transparent.png"
+  },
+  {
+    "id": "手鏡の幽霊",
+    "name": "手鏡の幽霊",
+    "imageUrl": "/images/illustrations/手鏡の幽霊_transparent.png"
+  },
+  {
+    "id": "抵抗",
+    "name": "抵抗",
+    "imageUrl": "/images/illustrations/抵抗_transparent.png"
+  },
+  {
+    "id": "招かれざる恐怖",
+    "name": "招かれざる恐怖",
+    "imageUrl": "/images/illustrations/招かれざる恐怖_transparent.png"
+  },
+  {
+    "id": "拡散炎",
+    "name": "拡散炎",
+    "imageUrl": "/images/illustrations/拡散炎_transparent.png"
+  },
+  {
+    "id": "掌握",
+    "name": "掌握",
+    "imageUrl": "/images/illustrations/掌握_transparent.png"
+  },
+  {
+    "id": "採掘ゴブリン",
+    "name": "採掘ゴブリン",
+    "imageUrl": "/images/illustrations/採掘ゴブリン_transparent.png"
+  },
+  {
+    "id": "撞木鮫",
+    "name": "撞木鮫",
+    "imageUrl": "/images/illustrations/撞木鮫_transparent.png"
+  },
+  {
+    "id": "整備",
+    "name": "整備",
+    "imageUrl": "/images/illustrations/整備_transparent.png"
+  },
+  {
+    "id": "斧の戦士",
+    "name": "斧の戦士",
+    "imageUrl": "/images/illustrations/斧の戦士_transparent.png"
+  },
+  {
+    "id": "新緑の石碑",
+    "name": "新緑の石碑",
+    "imageUrl": "/images/illustrations/新緑の石碑_transparent.png"
+  },
+  {
+    "id": "旗持ちの騎士",
+    "name": "旗持ちの騎士",
+    "imageUrl": "/images/illustrations/旗持ちの騎士_transparent.png"
+  },
+  {
+    "id": "日傘の海賊嬢",
+    "name": "日傘の海賊嬢",
+    "imageUrl": "/images/illustrations/日傘の海賊嬢_transparent.png"
+  },
+  {
+    "id": "旧式機械装甲",
+    "name": "旧式機械装甲",
+    "imageUrl": "/images/illustrations/旧式機械装甲_transparent.png"
+  },
+  {
+    "id": "星になる",
+    "name": "星になる",
+    "imageUrl": "/images/illustrations/星になる_transparent.png"
+  },
+  {
+    "id": "暗殺",
+    "name": "暗殺",
+    "imageUrl": "/images/illustrations/暗殺_transparent.png"
+  },
+  {
+    "id": "暴牙のティラノ",
+    "name": "暴牙のティラノ",
+    "imageUrl": "/images/illustrations/暴牙のティラノ_transparent.png"
+  },
+  {
+    "id": "最終兵器：MS",
+    "name": "最終兵器：MS",
+    "imageUrl": "/images/illustrations/最終兵器：MS_transparent.png"
+  },
+  {
+    "id": "月光の天使",
+    "name": "月光の天使",
+    "imageUrl": "/images/illustrations/月光の天使_transparent.png"
+  },
+  {
+    "id": "月宿る海",
+    "name": "月宿る海",
+    "imageUrl": "/images/illustrations/月宿る海_transparent.png"
+  },
+  {
+    "id": "月迎え",
+    "name": "月迎え",
+    "imageUrl": "/images/illustrations/月迎え_transparent.png"
+  },
+  {
+    "id": "木の宝箱",
+    "name": "木の宝箱",
+    "imageUrl": "/images/illustrations/木の宝箱_transparent.png"
+  },
+  {
+    "id": "木立火",
+    "name": "木立火",
+    "imageUrl": "/images/illustrations/木立火_transparent.png"
+  },
+  {
+    "id": "林道の亡霊",
+    "name": "林道の亡霊",
+    "imageUrl": "/images/illustrations/林道の亡霊_transparent.png"
+  },
+  {
+    "id": "枯れた森の野営地",
+    "name": "枯れた森の野営地",
+    "imageUrl": "/images/illustrations/枯れた森の野営地_transparent.png"
+  },
+  {
+    "id": "枯れ木の魔物",
+    "name": "枯れ木の魔物",
+    "imageUrl": "/images/illustrations/枯れ木の魔物_transparent.png"
+  },
+  {
+    "id": "栄華の花園",
+    "name": "栄華の花園",
+    "imageUrl": "/images/illustrations/栄華の花園_transparent.png"
+  },
+  {
+    "id": "桜小鳥",
+    "name": "桜小鳥",
+    "imageUrl": "/images/illustrations/桜小鳥_transparent.png"
+  },
+  {
+    "id": "棒ゴブリン",
+    "name": "棒ゴブリン",
+    "imageUrl": "/images/illustrations/棒ゴブリン_transparent.png"
+  },
+  {
+    "id": "棒人間",
+    "name": "棒人間",
+    "imageUrl": "/images/illustrations/棒人間_transparent.png"
+  },
+  {
+    "id": "森の脅威",
+    "name": "森の脅威",
+    "imageUrl": "/images/illustrations/森の脅威_transparent.png"
+  },
+  {
+    "id": "森の贄",
+    "name": "森の贄",
+    "imageUrl": "/images/illustrations/森の贄_transparent.png"
+  },
+  {
+    "id": "森の雫",
+    "name": "森の雫",
+    "imageUrl": "/images/illustrations/森の雫_transparent.png"
+  },
+  {
+    "id": "森焼き",
+    "name": "森焼き",
+    "imageUrl": "/images/illustrations/森焼き_transparent.png"
+  },
+  {
+    "id": "極彩戦紙アマル",
+    "name": "極彩戦紙アマル",
+    "imageUrl": "/images/illustrations/極彩戦紙アマル_transparent.png"
+  },
+  {
+    "id": "極彩鳥の巣",
+    "name": "極彩鳥の巣",
+    "imageUrl": "/images/illustrations/極彩鳥の巣_transparent.png"
+  },
+  {
+    "id": "樹葉の幽霊",
+    "name": "樹葉の幽霊",
+    "imageUrl": "/images/illustrations/樹葉の幽霊_transparent.png"
+  },
+  {
+    "id": "武装強化",
+    "name": "武装強化",
+    "imageUrl": "/images/illustrations/武装強化_transparent.png"
+  },
+  {
+    "id": "歪な氷像",
+    "name": "歪な氷像",
+    "imageUrl": "/images/illustrations/歪な氷像_transparent.png"
+  },
+  {
+    "id": "歪む地平",
+    "name": "歪む地平",
+    "imageUrl": "/images/illustrations/歪む地平_transparent.png"
+  },
+  {
+    "id": "死体漁り",
+    "name": "死体漁り",
+    "imageUrl": "/images/illustrations/死体漁り_transparent.png"
+  },
+  {
+    "id": "死神の石柱",
+    "name": "死神の石柱",
+    "imageUrl": "/images/illustrations/死神の石柱_transparent.png"
+  },
+  {
+    "id": "毒入り傷薬",
+    "name": "毒入り傷薬",
+    "imageUrl": "/images/illustrations/毒入り傷薬_transparent.png"
+  },
+  {
+    "id": "毒殺",
+    "name": "毒殺",
+    "imageUrl": "/images/illustrations/毒殺_transparent.png"
+  },
+  {
+    "id": "毒沼の竜",
+    "name": "毒沼の竜",
+    "imageUrl": "/images/illustrations/毒沼の竜_transparent.png"
+  },
+  {
+    "id": "毒波",
+    "name": "毒波",
+    "imageUrl": "/images/illustrations/毒波_transparent.png"
+  },
+  {
+    "id": "気竜術",
+    "name": "気竜術",
+    "imageUrl": "/images/illustrations/気竜術_transparent.png"
+  },
+  {
+    "id": "水の精霊",
+    "name": "水の精霊",
+    "imageUrl": "/images/illustrations/水の精霊_transparent.png"
+  },
+  {
+    "id": "水の魔法使い",
+    "name": "水の魔法使い",
+    "imageUrl": "/images/illustrations/水の魔法使い_transparent.png"
+  },
+  {
+    "id": "水鉄砲ゴブリン",
+    "name": "水鉄砲ゴブリン",
+    "imageUrl": "/images/illustrations/水鉄砲ゴブリン_transparent.png"
+  },
+  {
+    "id": "氷の雨",
+    "name": "氷の雨",
+    "imageUrl": "/images/illustrations/氷の雨_transparent.png"
+  },
+  {
+    "id": "氷壁",
+    "name": "氷壁",
+    "imageUrl": "/images/illustrations/氷壁_transparent.png"
+  },
+  {
+    "id": "泉の水瓶",
+    "name": "泉の水瓶",
+    "imageUrl": "/images/illustrations/泉の水瓶_transparent.png"
+  },
+  {
+    "id": "泡の異形",
+    "name": "泡の異形",
+    "imageUrl": "/images/illustrations/泡の異形_transparent.png"
+  },
+  {
+    "id": "波竜術",
+    "name": "波竜術",
+    "imageUrl": "/images/illustrations/波竜術_transparent.png"
+  },
+  {
+    "id": "洞窟の悪魔",
+    "name": "洞窟の悪魔",
+    "imageUrl": "/images/illustrations/洞窟の悪魔_transparent.png"
+  },
+  {
+    "id": "活竜術",
+    "name": "活竜術",
+    "imageUrl": "/images/illustrations/活竜術_transparent.png"
+  },
+  {
+    "id": "流れ行く波",
+    "name": "流れ行く波",
+    "imageUrl": "/images/illustrations/流れ行く波_transparent.png"
+  },
+  {
+    "id": "流転の魔女",
+    "name": "流転の魔女",
+    "imageUrl": "/images/illustrations/流転の魔女_transparent.png"
+  },
+  {
+    "id": "海坊主",
+    "name": "海坊主",
+    "imageUrl": "/images/illustrations/海坊主_transparent.png"
+  },
+  {
+    "id": "海底探査",
+    "name": "海底探査",
+    "imageUrl": "/images/illustrations/海底探査_transparent.png"
+  },
+  {
+    "id": "海賊砲",
+    "name": "海賊砲",
+    "imageUrl": "/images/illustrations/海賊砲_transparent.png"
+  },
+  {
+    "id": "海賊船",
+    "name": "海賊船",
+    "imageUrl": "/images/illustrations/海賊船_transparent.png"
+  },
+  {
+    "id": "海賊長ヴァルロス",
+    "name": "海賊長ヴァルロス",
+    "imageUrl": "/images/illustrations/海賊長ヴァルロス_transparent.png"
+  },
+  {
+    "id": "海風の略奪者",
+    "name": "海風の略奪者",
+    "imageUrl": "/images/illustrations/海風の略奪者_transparent.png"
+  },
+  {
+    "id": "消耗品",
+    "name": "消耗品",
+    "imageUrl": "/images/illustrations/消耗品_transparent.png"
+  },
+  {
+    "id": "淡紅の欠片",
+    "name": "淡紅の欠片",
+    "imageUrl": "/images/illustrations/淡紅の欠片_transparent.png"
+  },
+  {
+    "id": "深森の守護者",
+    "name": "深森の守護者",
+    "imageUrl": "/images/illustrations/深森の守護者_transparent.png"
+  },
+  {
+    "id": "深海の禍根",
+    "name": "深海の禍根",
+    "imageUrl": "/images/illustrations/深海の禍根_transparent.png"
+  },
+  {
+    "id": "深青の大鯨",
+    "name": "深青の大鯨",
+    "imageUrl": "/images/illustrations/深青の大鯨_transparent.png"
+  },
+  {
+    "id": "混濁",
+    "name": "混濁",
+    "imageUrl": "/images/illustrations/混濁_transparent.png"
+  },
+  {
+    "id": "湖畔の幽霊",
+    "name": "湖畔の幽霊",
+    "imageUrl": "/images/illustrations/湖畔の幽霊_transparent.png"
+  },
+  {
+    "id": "滝壺蟹",
+    "name": "滝壺蟹",
+    "imageUrl": "/images/illustrations/滝壺蟹_transparent.png"
+  },
+  {
+    "id": "濡女",
+    "name": "濡女",
+    "imageUrl": "/images/illustrations/濡女_transparent.png"
+  },
+  {
+    "id": "火の輪",
+    "name": "火の輪",
+    "imageUrl": "/images/illustrations/火の輪_transparent.png"
+  },
+  {
+    "id": "火の魔法使い",
+    "name": "火の魔法使い",
+    "imageUrl": "/images/illustrations/火の魔法使い_transparent.png"
+  },
+  {
+    "id": "火口のヌシ",
+    "name": "火口のヌシ",
+    "imageUrl": "/images/illustrations/火口のヌシ_transparent.png"
+  },
+  {
+    "id": "火山弾",
+    "name": "火山弾",
+    "imageUrl": "/images/illustrations/火山弾_transparent.png"
+  },
+  {
+    "id": "火炎式魔力砲",
+    "name": "火炎式魔力砲",
+    "imageUrl": "/images/illustrations/火炎式魔力砲_transparent.png"
+  },
+  {
+    "id": "火花",
+    "name": "火花",
+    "imageUrl": "/images/illustrations/火花_transparent.png"
+  },
+  {
+    "id": "火薬の悪魔",
+    "name": "火薬の悪魔",
+    "imageUrl": "/images/illustrations/火薬の悪魔_transparent.png"
+  },
+  {
+    "id": "火車",
+    "name": "火車",
+    "imageUrl": "/images/illustrations/火車_transparent.png"
+  },
+  {
+    "id": "灰の大地",
+    "name": "灰の大地",
+    "imageUrl": "/images/illustrations/灰の大地_transparent.png"
+  },
+  {
+    "id": "災いの渦潮",
+    "name": "災いの渦潮",
+    "imageUrl": "/images/illustrations/災いの渦潮_transparent.png"
+  },
+  {
+    "id": "災厄",
+    "name": "災厄",
+    "imageUrl": "/images/illustrations/災厄_transparent.png"
+  },
+  {
+    "id": "炎の精霊",
+    "name": "炎の精霊",
+    "imageUrl": "/images/illustrations/炎の精霊_transparent.png"
+  },
+  {
+    "id": "炎剣の騎士",
+    "name": "炎剣の騎士",
+    "imageUrl": "/images/illustrations/炎剣の騎士_transparent.png"
+  },
+  {
+    "id": "炎天使ジダ",
+    "name": "炎天使ジダ",
+    "imageUrl": "/images/illustrations/炎天使ジダ_transparent.png"
+  },
+  {
+    "id": "炎鱗の鮫",
+    "name": "炎鱗の鮫",
+    "imageUrl": "/images/illustrations/炎鱗の鮫_transparent.png"
+  },
+  {
+    "id": "炎鱗双剣",
+    "name": "炎鱗双剣",
+    "imageUrl": "/images/illustrations/炎鱗双剣_transparent.png"
+  },
+  {
+    "id": "炎鱗工房",
+    "name": "炎鱗工房",
+    "imageUrl": "/images/illustrations/炎鱗工房_transparent.png"
+  },
+  {
+    "id": "炎鱗弓",
+    "name": "炎鱗弓",
+    "imageUrl": "/images/illustrations/炎鱗弓_transparent.png"
+  },
+  {
+    "id": "炎鱗狩りの剣士",
+    "name": "炎鱗狩りの剣士",
+    "imageUrl": "/images/illustrations/炎鱗狩りの剣士_transparent.png"
+  },
+  {
+    "id": "炎鱗竜プロクス",
+    "name": "炎鱗竜プロクス",
+    "imageUrl": "/images/illustrations/炎鱗竜プロクス_transparent.png"
+  },
+  {
+    "id": "点火",
+    "name": "点火",
+    "imageUrl": "/images/illustrations/点火_transparent.png"
+  },
+  {
+    "id": "烈火共鳴",
+    "name": "烈火共鳴",
+    "imageUrl": "/images/illustrations/烈火共鳴_transparent.png"
+  },
+  {
+    "id": "無の創造",
+    "name": "無の創造",
+    "imageUrl": "/images/illustrations/無の創造_transparent.png"
+  },
+  {
+    "id": "無形の霊術師",
+    "name": "無形の霊術師",
+    "imageUrl": "/images/illustrations/無形の霊術師_transparent.png"
+  },
+  {
+    "id": "無限の恵沢",
+    "name": "無限の恵沢",
+    "imageUrl": "/images/illustrations/無限の恵沢_transparent.png"
+  },
+  {
+    "id": "焦げスライム",
+    "name": "焦げスライム",
+    "imageUrl": "/images/illustrations/焦げスライム_transparent.png"
+  },
+  {
+    "id": "焼き魚",
+    "name": "焼き魚",
+    "imageUrl": "/images/illustrations/焼き魚_transparent.png"
+  },
+  {
+    "id": "焼却",
+    "name": "焼却",
+    "imageUrl": "/images/illustrations/焼却_transparent.png"
+  },
+  {
+    "id": "煌めく尖晶石",
+    "name": "煌めく尖晶石",
+    "imageUrl": "/images/illustrations/煌めく尖晶石_transparent.png"
+  },
+  {
+    "id": "熟達の女騎士",
+    "name": "熟達の女騎士",
+    "imageUrl": "/images/illustrations/熟達の女騎士_transparent.png"
+  },
+  {
+    "id": "燃えトカゲ",
+    "name": "燃えトカゲ",
+    "imageUrl": "/images/illustrations/燃えトカゲ_transparent.png"
+  },
+  {
+    "id": "燃天の熾天使",
+    "name": "燃天の熾天使",
+    "imageUrl": "/images/illustrations/燃天の熾天使_transparent.png"
+  },
+  {
+    "id": "爆発",
+    "name": "爆発",
+    "imageUrl": "/images/illustrations/爆発_transparent.png"
+  },
+  {
+    "id": "爆発魚",
+    "name": "爆発魚",
+    "imageUrl": "/images/illustrations/爆発魚_transparent.png"
+  },
+  {
+    "id": "狂気の術式",
+    "name": "狂気の術式",
+    "imageUrl": "/images/illustrations/狂気の術式_transparent.png"
+  },
+  {
+    "id": "獣使い",
+    "name": "獣使い",
+    "imageUrl": "/images/illustrations/獣使い_transparent.png"
+  },
+  {
+    "id": "王国の参謀",
+    "name": "王国の参謀",
+    "imageUrl": "/images/illustrations/王国の参謀_transparent.png"
+  },
+  {
+    "id": "王国の弓騎士",
+    "name": "王国の弓騎士",
+    "imageUrl": "/images/illustrations/王国の弓騎士_transparent.png"
+  },
+  {
+    "id": "王国の槍騎士",
+    "name": "王国の槍騎士",
+    "imageUrl": "/images/illustrations/王国の槍騎士_transparent.png"
+  },
+  {
+    "id": "王国の騎士団長",
+    "name": "王国の騎士団長",
+    "imageUrl": "/images/illustrations/王国の騎士団長_transparent.png"
+  },
+  {
+    "id": "甘々な論理",
+    "name": "甘々な論理",
+    "imageUrl": "/images/illustrations/甘々な論理_transparent.png"
+  },
+  {
+    "id": "甘誘の悪魔",
+    "name": "甘誘の悪魔",
+    "imageUrl": "/images/illustrations/甘誘の悪魔_transparent.png"
+  },
+  {
+    "id": "畏怖の紋章",
+    "name": "畏怖の紋章",
+    "imageUrl": "/images/illustrations/畏怖の紋章_transparent.png"
+  },
+  {
+    "id": "疑似餌付き",
+    "name": "疑似餌付き",
+    "imageUrl": "/images/illustrations/疑似餌付き_transparent.png"
+  },
+  {
+    "id": "疾風のハーピー",
+    "name": "疾風のハーピー",
+    "imageUrl": "/images/illustrations/疾風のハーピー_transparent.png"
+  },
+  {
+    "id": "白と黒",
+    "name": "白と黒",
+    "imageUrl": "/images/illustrations/白と黒_transparent.png"
+  },
+  {
+    "id": "白蛇",
+    "name": "白蛇",
+    "imageUrl": "/images/illustrations/白蛇_transparent.png"
+  },
+  {
+    "id": "白詰草の魔物",
+    "name": "白詰草の魔物",
+    "imageUrl": "/images/illustrations/白詰草の魔物_transparent.png"
+  },
+  {
+    "id": "白魔の訪れ",
+    "name": "白魔の訪れ",
+    "imageUrl": "/images/illustrations/白魔の訪れ_transparent.png"
+  },
+  {
+    "id": "百鬼夜行",
+    "name": "百鬼夜行",
+    "imageUrl": "/images/illustrations/百鬼夜行_transparent.png"
+  },
+  {
+    "id": "盗み",
+    "name": "盗み",
+    "imageUrl": "/images/illustrations/盗み_transparent.png"
+  },
+  {
+    "id": "盾鋏の蟹",
+    "name": "盾鋏の蟹",
+    "imageUrl": "/images/illustrations/盾鋏の蟹_transparent.png"
+  },
+  {
+    "id": "知識の波",
+    "name": "知識の波",
+    "imageUrl": "/images/illustrations/知識の波_transparent.png"
+  },
+  {
+    "id": "短剣の騎士",
+    "name": "短剣の騎士",
+    "imageUrl": "/images/illustrations/短剣の騎士_transparent.png"
+  },
+  {
+    "id": "石の剣",
+    "name": "石の剣",
+    "imageUrl": "/images/illustrations/石の剣_transparent.png"
+  },
+  {
+    "id": "石ゴブリン",
+    "name": "石ゴブリン",
+    "imageUrl": "/images/illustrations/石ゴブリン_transparent.png"
+  },
+  {
+    "id": "石鎚の鍛治師",
+    "name": "石鎚の鍛治師",
+    "imageUrl": "/images/illustrations/石鎚の鍛治師_transparent.png"
+  },
+  {
+    "id": "砂浜のゴーレム",
+    "name": "砂浜のゴーレム",
+    "imageUrl": "/images/illustrations/砂浜のゴーレム_transparent.png"
+  },
+  {
+    "id": "破邪の天使",
+    "name": "破邪の天使",
+    "imageUrl": "/images/illustrations/破邪の天使_transparent.png"
+  },
+  {
+    "id": "碑獣の刻石",
+    "name": "碑獣の刻石",
+    "imageUrl": "/images/illustrations/碑獣の刻石_transparent.png"
+  },
+  {
+    "id": "碑獣アリオール",
+    "name": "碑獣アリオール",
+    "imageUrl": "/images/illustrations/碑獣アリオール_transparent.png"
+  },
+  {
+    "id": "碑獣ガリル",
+    "name": "碑獣ガリル",
+    "imageUrl": "/images/illustrations/碑獣ガリル_transparent.png"
+  },
+  {
+    "id": "碑獣ガーヴ",
+    "name": "碑獣ガーヴ",
+    "imageUrl": "/images/illustrations/碑獣ガーヴ_transparent.png"
+  },
+  {
+    "id": "碑獣タイタン",
+    "name": "碑獣タイタン",
+    "imageUrl": "/images/illustrations/碑獣タイタン_transparent.png"
+  },
+  {
+    "id": "碑獣タッソ",
+    "name": "碑獣タッソ",
+    "imageUrl": "/images/illustrations/碑獣タッソ_transparent.png"
+  },
+  {
+    "id": "碑獣ヴィファル",
+    "name": "碑獣ヴィファル",
+    "imageUrl": "/images/illustrations/碑獣ヴィファル_transparent.png"
+  },
+  {
+    "id": "碧い花",
+    "name": "碧い花",
+    "imageUrl": "/images/illustrations/碧い花_transparent.png"
+  },
+  {
+    "id": "祈りの天使像",
+    "name": "祈りの天使像",
+    "imageUrl": "/images/illustrations/祈りの天使像_transparent.png"
+  },
+  {
+    "id": "神秘への遭遇",
+    "name": "神秘への遭遇",
+    "imageUrl": "/images/illustrations/神秘への遭遇_transparent.png"
+  },
+  {
+    "id": "神託の鳥",
+    "name": "神託の鳥",
+    "imageUrl": "/images/illustrations/神託の鳥_transparent.png"
+  },
+  {
+    "id": "禁忌の錬成",
+    "name": "禁忌の錬成",
+    "imageUrl": "/images/illustrations/禁忌の錬成_transparent.png"
+  },
+  {
+    "id": "秘薬の治療師",
+    "name": "秘薬の治療師",
+    "imageUrl": "/images/illustrations/秘薬の治療師_transparent.png"
+  },
+  {
+    "id": "空を駆ける者",
+    "name": "空を駆ける者",
+    "imageUrl": "/images/illustrations/空を駆ける者_transparent.png"
+  },
+  {
+    "id": "突風",
+    "name": "突風",
+    "imageUrl": "/images/illustrations/突風_transparent.png"
+  },
+  {
+    "id": "竜の記憶",
+    "name": "竜の記憶",
+    "imageUrl": "/images/illustrations/竜の記憶_transparent.png"
+  },
+  {
+    "id": "竜術師",
+    "name": "竜術師",
+    "imageUrl": "/images/illustrations/竜術師_transparent.png"
+  },
+  {
+    "id": "竜討毒の鳥",
+    "name": "竜討毒の鳥",
+    "imageUrl": "/images/illustrations/竜討毒の鳥_transparent.png"
+  },
+  {
+    "id": "竜頭山",
+    "name": "竜頭山",
+    "imageUrl": "/images/illustrations/竜頭山_transparent.png"
+  },
+  {
+    "id": "竹の魔物",
+    "name": "竹の魔物",
+    "imageUrl": "/images/illustrations/竹の魔物_transparent.png"
+  },
+  {
+    "id": "笑うエイ",
+    "name": "笑うエイ",
+    "imageUrl": "/images/illustrations/笑うエイ_transparent.png"
+  },
+  {
+    "id": "篝火の幽霊",
+    "name": "篝火の幽霊",
+    "imageUrl": "/images/illustrations/篝火の幽霊_transparent.png"
+  },
+  {
+    "id": "籠罠",
+    "name": "籠罠",
+    "imageUrl": "/images/illustrations/籠罠_transparent.png"
+  },
+  {
+    "id": "糸動奇 柱",
+    "name": "糸動奇 柱",
+    "imageUrl": "/images/illustrations/糸動奇 柱_transparent.png"
+  },
+  {
+    "id": "糸動奇 環",
+    "name": "糸動奇 環",
+    "imageUrl": "/images/illustrations/糸動奇 環_transparent.png"
+  },
+  {
+    "id": "糸動奇 箱",
+    "name": "糸動奇 箱",
+    "imageUrl": "/images/illustrations/糸動奇 箱_transparent.png"
+  },
+  {
+    "id": "糸動奇 角",
+    "name": "糸動奇 角",
+    "imageUrl": "/images/illustrations/糸動奇 角_transparent.png"
+  },
+  {
+    "id": "糸動源",
+    "name": "糸動源",
+    "imageUrl": "/images/illustrations/糸動源_transparent.png"
+  },
+  {
+    "id": "糸動騎士",
+    "name": "糸動騎士",
+    "imageUrl": "/images/illustrations/糸動騎士_transparent.png"
+  },
+  {
+    "id": "紅天狗茸の魔物",
+    "name": "紅天狗茸の魔物",
+    "imageUrl": "/images/illustrations/紅天狗茸の魔物_transparent.png"
+  },
+  {
+    "id": "紅蓮球",
+    "name": "紅蓮球",
+    "imageUrl": "/images/illustrations/紅蓮球_transparent.png"
+  },
+  {
+    "id": "紅魚",
+    "name": "紅魚",
+    "imageUrl": "/images/illustrations/紅魚_transparent.png"
+  },
+  {
+    "id": "紫月昇り",
+    "name": "紫月昇り",
+    "imageUrl": "/images/illustrations/紫月昇り_transparent.png"
+  },
+  {
+    "id": "紫毒蜂の女帝",
+    "name": "紫毒蜂の女帝",
+    "imageUrl": "/images/illustrations/紫毒蜂の女帝_transparent.png"
+  },
+  {
+    "id": "絵画の幽霊",
+    "name": "絵画の幽霊",
+    "imageUrl": "/images/illustrations/絵画の幽霊_transparent.png"
+  },
+  {
+    "id": "絶対神",
+    "name": "絶対神",
+    "imageUrl": "/images/illustrations/絶対神_transparent.png"
+  },
+  {
+    "id": "絶望の招来",
+    "name": "絶望の招来",
+    "imageUrl": "/images/illustrations/絶望の招来_transparent.png"
+  },
+  {
+    "id": "網罠",
+    "name": "網罠",
+    "imageUrl": "/images/illustrations/網罠_transparent.png"
+  },
+  {
+    "id": "緊急発進台",
+    "name": "緊急発進台",
+    "imageUrl": "/images/illustrations/緊急発進台_transparent.png"
+  },
+  {
+    "id": "緑の大地",
+    "name": "緑の大地",
+    "imageUrl": "/images/illustrations/緑の大地_transparent.png"
+  },
+  {
+    "id": "緑化",
+    "name": "緑化",
+    "imageUrl": "/images/illustrations/緑化_transparent.png"
+  },
+  {
+    "id": "縄刃投げ",
+    "name": "縄刃投げ",
+    "imageUrl": "/images/illustrations/縄刃投げ_transparent.png"
+  },
+  {
+    "id": "縛り上げ",
+    "name": "縛り上げ",
+    "imageUrl": "/images/illustrations/縛り上げ_transparent.png"
+  },
+  {
+    "id": "繁栄",
+    "name": "繁栄",
+    "imageUrl": "/images/illustrations/繁栄_transparent.png"
+  },
+  {
+    "id": "繁茂する根",
+    "name": "繁茂する根",
+    "imageUrl": "/images/illustrations/繁茂する根_transparent.png"
+  },
+  {
+    "id": "羊歯の魔物",
+    "name": "羊歯の魔物",
+    "imageUrl": "/images/illustrations/羊歯の魔物_transparent.png"
+  },
+  {
+    "id": "翠の古代魚",
+    "name": "翠の古代魚",
+    "imageUrl": "/images/illustrations/翠の古代魚_transparent.png"
+  },
+  {
+    "id": "翠鱗のパラサウロロフス",
+    "name": "翠鱗のパラサウロロフス",
+    "imageUrl": "/images/illustrations/翠鱗のパラサウロロフス_transparent.png"
+  },
+  {
+    "id": "翼落とし",
+    "name": "翼落とし",
+    "imageUrl": "/images/illustrations/翼落とし_transparent.png"
+  },
+  {
+    "id": "腐りスライム",
+    "name": "腐りスライム",
+    "imageUrl": "/images/illustrations/腐りスライム_transparent.png"
+  },
+  {
+    "id": "腹ごしらえ",
+    "name": "腹ごしらえ",
+    "imageUrl": "/images/illustrations/腹ごしらえ_transparent.png"
+  },
+  {
+    "id": "自律機シップマン",
+    "name": "自律機シップマン",
+    "imageUrl": "/images/illustrations/自律機シップマン_transparent.png"
+  },
+  {
+    "id": "自律機パイルマン",
+    "name": "自律機パイルマン",
+    "imageUrl": "/images/illustrations/自律機パイルマン_transparent.png"
+  },
+  {
+    "id": "自律機フォースマン",
+    "name": "自律機フォースマン",
+    "imageUrl": "/images/illustrations/自律機フォースマン_transparent.png"
+  },
+  {
+    "id": "自立機カメラマン",
+    "name": "自立機カメラマン",
+    "imageUrl": "/images/illustrations/自立機カメラマン_transparent.png"
+  },
+  {
+    "id": "自立機ジャンクマン",
+    "name": "自立機ジャンクマン",
+    "imageUrl": "/images/illustrations/自立機ジャンクマン_transparent.png"
+  },
+  {
+    "id": "自立機スイッチマン",
+    "name": "自立機スイッチマン",
+    "imageUrl": "/images/illustrations/自立機スイッチマン_transparent.png"
+  },
+  {
+    "id": "自立機タイヤマン",
+    "name": "自立機タイヤマン",
+    "imageUrl": "/images/illustrations/自立機タイヤマン_transparent.png"
+  },
+  {
+    "id": "自立機トラックマン",
+    "name": "自立機トラックマン",
+    "imageUrl": "/images/illustrations/自立機トラックマン_transparent.png"
+  },
+  {
+    "id": "自立機ファイアマン",
+    "name": "自立機ファイアマン",
+    "imageUrl": "/images/illustrations/自立機ファイアマン_transparent.png"
+  },
+  {
+    "id": "自立機ラジコンマン",
+    "name": "自立機ラジコンマン",
+    "imageUrl": "/images/illustrations/自立機ラジコンマン_transparent.png"
+  },
+  {
+    "id": "自走式裁断機",
+    "name": "自走式裁断機",
+    "imageUrl": "/images/illustrations/自走式裁断機_transparent.png"
+  },
+  {
+    "id": "自走式貯水機",
+    "name": "自走式貯水機",
+    "imageUrl": "/images/illustrations/自走式貯水機_transparent.png"
+  },
+  {
+    "id": "舞う尖晶石",
+    "name": "舞う尖晶石",
+    "imageUrl": "/images/illustrations/舞う尖晶石_transparent.png"
+  },
+  {
+    "id": "船霊逆浪海域",
+    "name": "船霊逆浪海域",
+    "imageUrl": "/images/illustrations/船霊逆浪海域_transparent.png"
+  },
+  {
+    "id": "色彩共鳴",
+    "name": "色彩共鳴",
+    "imageUrl": "/images/illustrations/色彩共鳴_transparent.png"
+  },
+  {
+    "id": "艶めく風切羽",
+    "name": "艶めく風切羽",
+    "imageUrl": "/images/illustrations/艶めく風切羽_transparent.png"
+  },
+  {
+    "id": "花禍の刺蜂",
+    "name": "花禍の刺蜂",
+    "imageUrl": "/images/illustrations/花禍の刺蜂_transparent.png"
+  },
+  {
+    "id": "花禍の撃蜂",
+    "name": "花禍の撃蜂",
+    "imageUrl": "/images/illustrations/花禍の撃蜂_transparent.png"
+  },
+  {
+    "id": "花禍の穿蜂",
+    "name": "花禍の穿蜂",
+    "imageUrl": "/images/illustrations/花禍の穿蜂_transparent.png"
+  },
+  {
+    "id": "花華の縄張",
+    "name": "花華の縄張",
+    "imageUrl": "/images/illustrations/花華の縄張_transparent.png"
+  },
+  {
+    "id": "花蜜蜂の女帝",
+    "name": "花蜜蜂の女帝",
+    "imageUrl": "/images/illustrations/花蜜蜂の女帝_transparent.png"
+  },
+  {
+    "id": "苔のゴーレム",
+    "name": "苔のゴーレム",
+    "imageUrl": "/images/illustrations/苔のゴーレム_transparent.png"
+  },
+  {
+    "id": "草の魔物",
+    "name": "草の魔物",
+    "imageUrl": "/images/illustrations/草の魔物_transparent.png"
+  },
+  {
+    "id": "華乙女ベゴニア",
+    "name": "華乙女ベゴニア",
+    "imageUrl": "/images/illustrations/華乙女ベゴニア_transparent.png"
+  },
+  {
+    "id": "落とし穴",
+    "name": "落とし穴",
+    "imageUrl": "/images/illustrations/落とし穴_transparent.png"
+  },
+  {
+    "id": "落石",
+    "name": "落石",
+    "imageUrl": "/images/illustrations/落石_transparent.png"
+  },
+  {
+    "id": "蒸気機関の古代機",
+    "name": "蒸気機関の古代機",
+    "imageUrl": "/images/illustrations/蒸気機関の古代機_transparent.png"
+  },
+  {
+    "id": "蒼魚",
+    "name": "蒼魚",
+    "imageUrl": "/images/illustrations/蒼魚_transparent.png"
+  },
+  {
+    "id": "藪蛇",
+    "name": "藪蛇",
+    "imageUrl": "/images/illustrations/藪蛇_transparent.png"
+  },
+  {
+    "id": "蘇竜術",
+    "name": "蘇竜術",
+    "imageUrl": "/images/illustrations/蘇竜術_transparent.png"
+  },
+  {
+    "id": "虚の財宝",
+    "name": "虚の財宝",
+    "imageUrl": "/images/illustrations/虚の財宝_transparent.png"
+  },
+  {
+    "id": "蝿取草の魔物",
+    "name": "蝿取草の魔物",
+    "imageUrl": "/images/illustrations/蝿取草の魔物_transparent.png"
+  },
+  {
+    "id": "融解",
+    "name": "融解",
+    "imageUrl": "/images/illustrations/融解_transparent.png"
+  },
+  {
+    "id": "蟻司令官",
+    "name": "蟻司令官",
+    "imageUrl": "/images/illustrations/蟻司令官_transparent.png"
+  },
+  {
+    "id": "蠢く墓場",
+    "name": "蠢く墓場",
+    "imageUrl": "/images/illustrations/蠢く墓場_transparent.png"
+  },
+  {
+    "id": "血の鎌使い",
+    "name": "血の鎌使い",
+    "imageUrl": "/images/illustrations/血の鎌使い_transparent.png"
+  },
+  {
+    "id": "裁きの日",
+    "name": "裁きの日",
+    "imageUrl": "/images/illustrations/裁きの日_transparent.png"
+  },
+  {
+    "id": "裂爪のラプトル",
+    "name": "裂爪のラプトル",
+    "imageUrl": "/images/illustrations/裂爪のラプトル_transparent.png"
+  },
+  {
+    "id": "補給物資",
+    "name": "補給物資",
+    "imageUrl": "/images/illustrations/補給物資_transparent.png"
+  },
+  {
+    "id": "角笛",
+    "name": "角笛",
+    "imageUrl": "/images/illustrations/角笛_transparent.png"
+  },
+  {
+    "id": "解体遊び",
+    "name": "解体遊び",
+    "imageUrl": "/images/illustrations/解体遊び_transparent.png"
+  },
+  {
+    "id": "討伐依頼",
+    "name": "討伐依頼",
+    "imageUrl": "/images/illustrations/討伐依頼_transparent.png"
+  },
+  {
+    "id": "詠唱魔方陣・奔流",
+    "name": "詠唱魔方陣・奔流",
+    "imageUrl": "/images/illustrations/詠唱魔方陣・奔流_transparent.png"
+  },
+  {
+    "id": "詠唱魔方陣・野生",
+    "name": "詠唱魔方陣・野生",
+    "imageUrl": "/images/illustrations/詠唱魔方陣・野生_transparent.png"
+  },
+  {
+    "id": "詠唱魔法陣・天翼",
+    "name": "詠唱魔法陣・天翼",
+    "imageUrl": "/images/illustrations/詠唱魔法陣・天翼_transparent.png"
+  },
+  {
+    "id": "詠唱魔法陣・知識",
+    "name": "詠唱魔法陣・知識",
+    "imageUrl": "/images/illustrations/詠唱魔法陣・知識_transparent.png"
+  },
+  {
+    "id": "誓いの天使",
+    "name": "誓いの天使",
+    "imageUrl": "/images/illustrations/誓いの天使_transparent.png"
+  },
+  {
+    "id": "誤射",
+    "name": "誤射",
+    "imageUrl": "/images/illustrations/誤射_transparent.png"
+  },
+  {
+    "id": "豊穣の女神",
+    "name": "豊穣の女神",
+    "imageUrl": "/images/illustrations/豊穣の女神_transparent.png"
+  },
+  {
+    "id": "赤蛇",
+    "name": "赤蛇",
+    "imageUrl": "/images/illustrations/赤蛇_transparent.png"
+  },
+  {
+    "id": "超爆発",
+    "name": "超爆発",
+    "imageUrl": "/images/illustrations/超爆発_transparent.png"
+  },
+  {
+    "id": "超臨界",
+    "name": "超臨界",
+    "imageUrl": "/images/illustrations/超臨界_transparent.png"
+  },
+  {
+    "id": "転換",
+    "name": "転換",
+    "imageUrl": "/images/illustrations/転換_transparent.png"
+  },
+  {
+    "id": "軽魔法陣詠唱機",
+    "name": "軽魔法陣詠唱機",
+    "imageUrl": "/images/illustrations/軽魔法陣詠唱機_transparent.png"
+  },
+  {
+    "id": "輝化",
+    "name": "輝化",
+    "imageUrl": "/images/illustrations/輝化_transparent.png"
+  },
+  {
+    "id": "輪廻転生",
+    "name": "輪廻転生",
+    "imageUrl": "/images/illustrations/輪廻転生_transparent.png"
+  },
+  {
+    "id": "轟雷",
+    "name": "轟雷",
+    "imageUrl": "/images/illustrations/轟雷_transparent.png"
+  },
+  {
+    "id": "迸る尖晶石",
+    "name": "迸る尖晶石",
+    "imageUrl": "/images/illustrations/迸る尖晶石_transparent.png"
+  },
+  {
+    "id": "追放",
+    "name": "追放",
+    "imageUrl": "/images/illustrations/追放_transparent.png"
+  },
+  {
+    "id": "遺跡の護り手",
+    "name": "遺跡の護り手",
+    "imageUrl": "/images/illustrations/遺跡の護り手_transparent.png"
+  },
+  {
+    "id": "還り門の森",
+    "name": "還り門の森",
+    "imageUrl": "/images/illustrations/還り門の森_transparent.png"
+  },
+  {
+    "id": "還元",
+    "name": "還元",
+    "imageUrl": "/images/illustrations/還元_transparent.png"
+  },
+  {
+    "id": "部隊指揮官",
+    "name": "部隊指揮官",
+    "imageUrl": "/images/illustrations/部隊指揮官_transparent.png"
+  },
+  {
+    "id": "酒呑童子",
+    "name": "酒呑童子",
+    "imageUrl": "/images/illustrations/酒呑童子_transparent.png"
+  },
+  {
+    "id": "酸性雨",
+    "name": "酸性雨",
+    "imageUrl": "/images/illustrations/酸性雨_transparent.png"
+  },
+  {
+    "id": "金貨の悪魔",
+    "name": "金貨の悪魔",
+    "imageUrl": "/images/illustrations/金貨の悪魔_transparent.png"
+  },
+  {
+    "id": "釣り人",
+    "name": "釣り人",
+    "imageUrl": "/images/illustrations/釣り人_transparent.png"
+  },
+  {
+    "id": "釣果",
+    "name": "釣果",
+    "imageUrl": "/images/illustrations/釣果_transparent.png"
+  },
+  {
+    "id": "鈍化",
+    "name": "鈍化",
+    "imageUrl": "/images/illustrations/鈍化_transparent.png"
+  },
+  {
+    "id": "鉄鎧のアンキロ",
+    "name": "鉄鎧のアンキロ",
+    "imageUrl": "/images/illustrations/鉄鎧のアンキロ_transparent.png"
+  },
+  {
+    "id": "銀翼のハーピー",
+    "name": "銀翼のハーピー",
+    "imageUrl": "/images/illustrations/銀翼のハーピー_transparent.png"
+  },
+  {
+    "id": "銀雪の幼竜",
+    "name": "銀雪の幼竜",
+    "imageUrl": "/images/illustrations/銀雪の幼竜_transparent.png"
+  },
+  {
+    "id": "銀雪の灰竜",
+    "name": "銀雪の灰竜",
+    "imageUrl": "/images/illustrations/銀雪の灰竜_transparent.png"
+  },
+  {
+    "id": "銀雪の白竜",
+    "name": "銀雪の白竜",
+    "imageUrl": "/images/illustrations/銀雪の白竜_transparent.png"
+  },
+  {
+    "id": "銀雪の蒼竜",
+    "name": "銀雪の蒼竜",
+    "imageUrl": "/images/illustrations/銀雪の蒼竜_transparent.png"
+  },
+  {
+    "id": "銀雪夜",
+    "name": "銀雪夜",
+    "imageUrl": "/images/illustrations/銀雪夜_transparent.png"
+  },
+  {
+    "id": "銅剣の騎士",
+    "name": "銅剣の騎士",
+    "imageUrl": "/images/illustrations/銅剣の騎士_transparent.png"
+  },
+  {
+    "id": "鋸鮫",
+    "name": "鋸鮫",
+    "imageUrl": "/images/illustrations/鋸鮫_transparent.png"
+  },
+  {
+    "id": "鋼翼の竜",
+    "name": "鋼翼の竜",
+    "imageUrl": "/images/illustrations/鋼翼の竜_transparent.png"
+  },
+  {
+    "id": "錆のランタン",
+    "name": "錆のランタン",
+    "imageUrl": "/images/illustrations/錆のランタン_transparent.png"
+  },
+  {
+    "id": "錆の海",
+    "name": "錆の海",
+    "imageUrl": "/images/illustrations/錆の海_transparent.png"
+  },
+  {
+    "id": "鍵の精霊",
+    "name": "鍵の精霊",
+    "imageUrl": "/images/illustrations/鍵の精霊_transparent.png"
+  },
+  {
+    "id": "鎧ゴブリン",
+    "name": "鎧ゴブリン",
+    "imageUrl": "/images/illustrations/鎧ゴブリン_transparent.png"
+  },
+  {
+    "id": "開戦の日",
+    "name": "開戦の日",
+    "imageUrl": "/images/illustrations/開戦の日_transparent.png"
+  },
+  {
+    "id": "開花",
+    "name": "開花",
+    "imageUrl": "/images/illustrations/開花_transparent.png"
+  },
+  {
+    "id": "闇の誘惑",
+    "name": "闇の誘惑",
+    "imageUrl": "/images/illustrations/闇の誘惑_transparent.png"
+  },
+  {
+    "id": "闇討ち",
+    "name": "闇討ち",
+    "imageUrl": "/images/illustrations/闇討ち_transparent.png"
+  },
+  {
+    "id": "陽光の獅子",
+    "name": "陽光の獅子",
+    "imageUrl": "/images/illustrations/陽光の獅子_transparent.png"
+  },
+  {
+    "id": "階級制度",
+    "name": "階級制度",
+    "imageUrl": "/images/illustrations/階級制度_transparent.png"
+  },
+  {
+    "id": "集団戦法",
+    "name": "集団戦法",
+    "imageUrl": "/images/illustrations/集団戦法_transparent.png"
+  },
+  {
+    "id": "雪女",
+    "name": "雪女",
+    "imageUrl": "/images/illustrations/雪女_transparent.png"
+  },
+  {
+    "id": "雲のゴーレム",
+    "name": "雲のゴーレム",
+    "imageUrl": "/images/illustrations/雲のゴーレム_transparent.png"
+  },
+  {
+    "id": "雷神",
+    "name": "雷神",
+    "imageUrl": "/images/illustrations/雷神_transparent.png"
+  },
+  {
+    "id": "雷鳴の天馬",
+    "name": "雷鳴の天馬",
+    "imageUrl": "/images/illustrations/雷鳴の天馬_transparent.png"
+  },
+  {
+    "id": "霊魂の世",
+    "name": "霊魂の世",
+    "imageUrl": "/images/illustrations/霊魂の世_transparent.png"
+  },
+  {
+    "id": "霧中",
+    "name": "霧中",
+    "imageUrl": "/images/illustrations/霧中_transparent.png"
+  },
+  {
+    "id": "青空ゴブリン",
+    "name": "青空ゴブリン",
+    "imageUrl": "/images/illustrations/青空ゴブリン_transparent.png"
+  },
+  {
+    "id": "頑強な機兵",
+    "name": "頑強な機兵",
+    "imageUrl": "/images/illustrations/頑強な機兵_transparent.png"
+  },
+  {
+    "id": "願いの泉",
+    "name": "願いの泉",
+    "imageUrl": "/images/illustrations/願いの泉_transparent.png"
+  },
+  {
+    "id": "風化",
+    "name": "風化",
+    "imageUrl": "/images/illustrations/風化_transparent.png"
+  },
+  {
+    "id": "風読みのハーピー",
+    "name": "風読みのハーピー",
+    "imageUrl": "/images/illustrations/風読みのハーピー_transparent.png"
+  },
+  {
+    "id": "飛びナイフ",
+    "name": "飛びナイフ",
+    "imageUrl": "/images/illustrations/飛びナイフ_transparent.png"
+  },
+  {
+    "id": "飛天の騎獣",
+    "name": "飛天の騎獣",
+    "imageUrl": "/images/illustrations/飛天の騎獣_transparent.png"
+  },
+  {
+    "id": "飴玉の幽霊",
+    "name": "飴玉の幽霊",
+    "imageUrl": "/images/illustrations/飴玉の幽霊_transparent.png"
+  },
+  {
+    "id": "鬼火",
+    "name": "鬼火",
+    "imageUrl": "/images/illustrations/鬼火_transparent.png"
+  },
+  {
+    "id": "魂の共鳴",
+    "name": "魂の共鳴",
+    "imageUrl": "/images/illustrations/魂の共鳴_transparent.png"
+  },
+  {
+    "id": "魂の復元",
+    "name": "魂の復元",
+    "imageUrl": "/images/illustrations/魂の復元_transparent.png"
+  },
+  {
+    "id": "魂宿りの巨剣",
+    "name": "魂宿りの巨剣",
+    "imageUrl": "/images/illustrations/魂宿りの巨剣_transparent.png"
+  },
+  {
+    "id": "魔力の小瓶",
+    "name": "魔力の小瓶",
+    "imageUrl": "/images/illustrations/魔力の小瓶_transparent.png"
+  },
+  {
+    "id": "魔力の盃",
+    "name": "魔力の盃",
+    "imageUrl": "/images/illustrations/魔力の盃_transparent.png"
+  },
+  {
+    "id": "魔力炉",
+    "name": "魔力炉",
+    "imageUrl": "/images/illustrations/魔力炉_transparent.png"
+  },
+  {
+    "id": "魔法陣詠唱機",
+    "name": "魔法陣詠唱機",
+    "imageUrl": "/images/illustrations/魔法陣詠唱機_transparent.png"
+  },
+  {
+    "id": "魔石の精霊",
+    "name": "魔石の精霊",
+    "imageUrl": "/images/illustrations/魔石の精霊_transparent.png"
+  },
+  {
+    "id": "魔石の詠唱師",
+    "name": "魔石の詠唱師",
+    "imageUrl": "/images/illustrations/魔石の詠唱師_transparent.png"
+  },
+  {
+    "id": "魔石を統べる精霊王",
+    "name": "魔石を統べる精霊王",
+    "imageUrl": "/images/illustrations/魔石を統べる精霊王_transparent.png"
+  },
+  {
+    "id": "魔術書",
+    "name": "魔術書",
+    "imageUrl": "/images/illustrations/魔術書_transparent.png"
+  },
+  {
+    "id": "魔術書庫",
+    "name": "魔術書庫",
+    "imageUrl": "/images/illustrations/魔術書庫_transparent.png"
+  },
+  {
+    "id": "魔風のハーピー",
+    "name": "魔風のハーピー",
+    "imageUrl": "/images/illustrations/魔風のハーピー_transparent.png"
+  },
+  {
+    "id": "魚群魔法陣",
+    "name": "魚群魔法陣",
+    "imageUrl": "/images/illustrations/魚群魔法陣_transparent.png"
+  },
+  {
+    "id": "鮮赤の不死鳥",
+    "name": "鮮赤の不死鳥",
+    "imageUrl": "/images/illustrations/鮮赤の不死鳥_transparent.png"
+  },
+  {
+    "id": "鳥飼いの魔女",
+    "name": "鳥飼いの魔女",
+    "imageUrl": "/images/illustrations/鳥飼いの魔女_transparent.png"
+  },
+  {
+    "id": "鵺",
+    "name": "鵺",
+    "imageUrl": "/images/illustrations/鵺_transparent.png"
+  },
+  {
+    "id": "黄金蟹",
+    "name": "黄金蟹",
+    "imageUrl": "/images/illustrations/黄金蟹_transparent.png"
+  },
+  {
+    "id": "黎明の天使",
+    "name": "黎明の天使",
+    "imageUrl": "/images/illustrations/黎明の天使_transparent.png"
+  },
+  {
+    "id": "黒い花",
+    "name": "黒い花",
+    "imageUrl": "/images/illustrations/黒い花_transparent.png"
+  }
+]

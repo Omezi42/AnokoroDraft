@@ -14,14 +14,8 @@
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
             background-color: #f3f4f6; /* bg-gray-100 */
         }
-        /* カード選択リストの画像スタイル */
-        .card-list-item img {
-            opacity: 0.15;
-            transition: opacity 0.3s ease;
-        }
-        .card-list-item:hover img {
-            opacity: 0.4;
-        }
+        /* v4: カード選択リストの画像スタイルを削除 */
+
         /* 参加者グリッドのステータス色 */
         .status-selecting { background-color: #fff; border-color: #d1d5db; }
         .status-selected { background-color: #dbeafe; border-color: #93c5fd; } /* bg-blue-100 */
@@ -44,7 +38,6 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <!-- v3: 文言変更 -->
                 <p class="mt-4 text-lg font-semibold">ドラフトロビーに接続中...</p>
                 <p class="text-gray-600">Firebaseに接続し、認証しています。</p>
             </div>
@@ -53,7 +46,6 @@
         <!-- ルーム作成 / 参加画面 -->
         <div id="room-setup" class="hidden max-w-md mx-auto mt-20 p-8 bg-white rounded-2xl shadow-xl">
             <h1 class="text-3xl font-bold text-center text-gray-900 mb-6">ドラフト会議へようこそ</h1>
-            <!-- v3: 文言変更 -->
             <p class="text-center text-gray-600 mb-8">『あの頃の自作TCG』ドラフトロビーです。<br>ホストとして新しいロビーを作るか、既存のロビーに参加してください。</p>
             
             <div class="mb-6">
@@ -61,7 +53,6 @@
                 <input type="text" id="user-name" placeholder="例: 参加者A" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
-            <!-- v3: 文言変更 -->
             <button id="create-room-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5">
                 新しいロビーを作成する (ホスト)
             </button>
@@ -76,10 +67,8 @@
             </div>
 
             <div class="space-y-4">
-                <!-- v3: 文言変更 -->
                 <label for="room-id-input" class="block text-sm font-medium text-gray-700">ロビーIDで参加する</label>
                 <input type="text" id="room-id-input" placeholder="ホストから共有されたID" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <!-- v3: 文言変更 -->
                 <button id="join-room-btn" class="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5">
                     ロビーに参加する
                 </button>
@@ -96,11 +85,15 @@
                         <p id="room-status-text" class="text-xl font-semibold text-blue-700 mt-2">参加者待機中...</p>
                     </div>
                     <div class="mt-4 md:mt-0">
+                        <!-- v5: ドラフト設定表示 (全参加者) -->
+                        <div class="text-sm text-gray-700 text-right mb-2">
+                            <span>ラウンド上限: <span id="max-picks-display" class="font-semibold">N/A</span></span> |
+                            <span>制限時間: <span id="time-limit-display" class="font-semibold">N/A</span> 秒</span>
+                        </div>
                         <div class="text-sm text-gray-600 mb-2">参加用URL (ホストのみ表示):</div>
                         <div id="room-url-display" class="hidden items-center gap-2 p-3 bg-gray-100 rounded-lg border border-gray-300">
                             <input id="room-url-input" type="text" readonly class="bg-transparent text-gray-700 focus:outline-none w-full md:w-auto">
                             <button id="copy-url-btn" class="p-2 rounded-md bg-blue-100 text-blue-700 hover:bg-blue-200" title="URLをコピー">
-                                <!-- v2: Heroicon SVG をインライン化 -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-7.5A2.25 2.25 0 018.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 00-2.25 2.25v6" />
                                 </svg>
@@ -119,6 +112,24 @@
                     <!-- ホストコントロールパネル -->
                     <div id="host-controls" class="hidden bg-white p-6 rounded-2xl shadow-lg">
                         <h2 class="text-xl font-bold mb-4">ホストコントロール</h2>
+                        
+                        <!-- v5: ドラフト設定 (ホストのみ) -->
+                        <div id="draft-settings" class="space-y-4 mb-6 pt-4 border-t border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-800">ドラフト設定</h3>
+                            <div>
+                                <label for="max-picks-input" class="block text-sm font-medium text-gray-700 mb-1">
+                                    上限ラウンド数 (例: 20)
+                                </label>
+                                <input type="number" id="max-picks-input" min="1" max="100" class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100">
+                            </div>
+                            <div>
+                                <label for="time-limit-input" class="block text-sm font-medium text-gray-700 mb-1">
+                                    制限時間 (秒) (0で無制限)
+                                </label>
+                                <input type="number" id="time-limit-input" min="0" max="300" class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100">
+                            </div>
+                        </div>
+
                         <div class="space-y-3">
                             <button id="start-draft-btn" class="w-full bg-green-600 text-white font-bold py-3 px-5 rounded-lg shadow-md hover:bg-green-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                 ドラフト開始 (参加者 <span id="participant-count">0</span> 人)
@@ -143,6 +154,11 @@
                         <h2 class="text-xl font-bold mb-4">あなたのステータス</h2>
                         <p class="text-lg mb-2">名前: <span id="my-name" class="font-semibold"></span></p>
                         <p class="text-lg mb-4">状態: <span id="my-status" class="font-semibold"></span></p>
+                        <!-- v5: タイマー表示 -->
+                        <div id="pick-timer-display" class="hidden text-center mb-4">
+                            <p class="text-4xl font-bold text-red-600" id="timer-countdown">00</p>
+                            <p class="text-sm text-gray-600">残り時間</p>
+                        </div>
                         
                         <div id="my-selection-area">
                             <p class="mb-2 font-medium">選択中のカード:</p>
@@ -166,8 +182,11 @@
                     <!-- 参加者一覧 (グリッド) -->
                     <div class="bg-white p-6 rounded-2xl shadow-lg">
                         <h2 class="text-xl font-bold mb-4">参加者一覧</h2>
-                        <div id="participants-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            <!-- 参加者カードがここに入る -->
+                        <!-- v5: 高さ制限とスクロールを追加 -->
+                        <div id="participants-grid-container" class="max-h-72 overflow-y-auto pr-2">
+                            <div id="participants-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <!-- 参加者カードがここに入る -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,7 +196,8 @@
                     <!-- 全体ドラフトボード -->
                     <div class="bg-white p-6 rounded-2xl shadow-lg">
                         <h2 class="text-xl font-bold mb-4">全体ドラフトボード</h2>
-                        <div id="draft-board-container" class="overflow-x-auto">
+                        <!-- v5: 高さ制限とスクロールを追加 -->
+                        <div id="draft-board-container" class="overflow-x-auto max-h-96 overflow-y-auto">
                             <!-- JSでテーブルを生成 -->
                         </div>
                     </div>
@@ -207,7 +227,7 @@
             <input type="text" id="card-search-input" placeholder="カード名で検索..." class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
             <div id="card-list" class="flex-grow overflow-y-auto space-y-2 pr-2">
-                <!-- カードリストアイテム -->
+                <!-- v4: カードリストアイテム (画像なし) -->
             </div>
 
             <div class="mt-6 pt-4 border-t border-gray-200">
@@ -255,10 +275,15 @@
         let currentUserId, currentRoomId, isHost = false;
         let roomUnsubscribe = null; // ルームのリスナー解除用
         let participantsUnsubscribe = null; // 参加者のリスナー解除用
+        
+        // v5: タイマー用のグローバル変数
+        let pickTimeout = null; // 時間切れ (setTimeout)
+        let pickInterval = null; // 描画更新 (setInterval)
+
 
         // --- ダミーのカードデータ ---
         // TODO: ここを『あの頃の自作TCG』の実際のカードリストに差し替えてください。
-        // 画像URLはダミー(placehold.co)を使っています。
+        // v4: imageUrl を削除
         const DUMMY_CARD_DATA = [
   {
     "id": "うま",
@@ -584,11 +609,6 @@
     "id": "ネクロマンサー",
     "name": "ネクロマンサー",
     "imageUrl": "/images/illustrations/ネクロマンサー_transparent.png"
-  },
-  {
-    "id": "ノーマルエネルギー",
-    "name": "ノーマルエネルギー",
-    "imageUrl": "/images/illustrations/ノーマルエネルギー_transparent.png"
   },
   {
     "id": "ハイドロエネルギー",
@@ -3139,7 +3159,14 @@
         const copyUrlBtn = $("#copy-url-btn");
         const copyMessage = $("#copy-message");
 
+        // v5: ホスト設定
+        const maxPicksDisplay = $("#max-picks-display");
+        const timeLimitDisplay = $("#time-limit-display");
         const hostControlsEl = $("#host-controls");
+        const draftSettingsEl = $("#draft-settings");
+        const maxPicksInput = $("#max-picks-input");
+        const timeLimitInput = $("#time-limit-input");
+
         const startDraftBtn = $("#start-draft-btn");
         const participantCountSpan = $("#participant-count");
         const revealCardsBtn = $("#reveal-cards-btn");
@@ -3149,6 +3176,10 @@
 
         const myNameEl = $("#my-name");
         const myStatusEl = $("#my-status");
+        // v5: タイマー
+        const pickTimerDisplayEl = $("#pick-timer-display");
+        const timerCountdownEl = $("#timer-countdown");
+
         const mySelectedCardEl = $("#my-selected-card");
         const openCardPickerBtn = $("#open-card-picker-btn");
         const myAcquiredCardsEl = $("#my-acquired-cards");
@@ -3198,6 +3229,7 @@
             db = getFirestore(app);
 
             handleAuthentication();
+            setupHostSettingsListeners();
         });
 
         // --- 認証処理 ---
@@ -3284,7 +3316,11 @@
                     currentRound: 1,
                     currentPick: 1,
                     draftPool: DUMMY_CARD_DATA.map(card => card.id), // カードプールの初期化
-                    createdAt: serverTimestamp()
+                    createdAt: serverTimestamp(),
+                    // v5: ドラフト設定のデフォルト値
+                    maxPicks: 20,
+                    timeLimitSeconds: 60,
+                    pickStartTime: null // タイマー開始時刻
                 });
 
                 currentRoomId = roomRef.id;
@@ -3311,7 +3347,6 @@
                 return;
             }
             if (!roomId) {
-                // v3: 文言変更
                 showMessage("ロビーIDを入力してください。", "error");
                 return;
             }
@@ -3322,7 +3357,6 @@
                 const roomSnap = await getDoc(roomRef);
 
                 if (!roomSnap.exists()) {
-                    // v3: 文言変更
                     showMessage("ロビーが見つかりません。", "error");
                     return;
                 }
@@ -3387,19 +3421,14 @@
         // --- URLコピー機能 ---
         copyUrlBtn.addEventListener("click", () => {
             roomUrlInput.select();
-            // navigator.clipboard.writeText は iframe内では動作しないことがあるため、
-            // 古い document.execCommand を使用します。
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
                     copyMessage.textContent = 'コピーしました！';
                     setTimeout(() => { copyMessage.textContent = ''; }, 2000);
-                } else {
-                    throw new Error();
-                }
+                } else { throw new Error(); }
             } catch (err) {
                 copyMessage.textContent = 'コピーに失敗しました';
-                console.error('クリップボードへのコピーに失敗しました:', err);
             }
             window.getSelection().removeAllRanges(); // 選択解除
         });
@@ -3445,7 +3474,7 @@
                 
                 console.log("Participants Data Updated:", localParticipantsData);
                 updateParticipantsUI(localParticipantsData);
-                updateMyStatusUI(localParticipantsData);
+                updateMyStatusUI(localParticipantsData); // タイマーロジックも含む
                 updateDraftBoardUI(localParticipantsData, localRoomData?.currentRound ?? 1);
                 
                 // ホストコントロールの更新（全員の準備ができたかなど）
@@ -3463,7 +3492,7 @@
 
         // ルーム全体のUI更新
         function updateRoomUI(roomData) {
-            const { status, currentRound, currentPick } = roomData;
+            const { status, currentRound, currentPick, maxPicks, timeLimitSeconds } = roomData;
             let statusMessage = "";
 
             switch (status) {
@@ -3491,6 +3520,26 @@
                     break;
             }
             roomStatusText.textContent = statusMessage;
+
+            // v5: ドラフト設定を全参加者に表示
+            maxPicksDisplay.textContent = maxPicks;
+            timeLimitDisplay.textContent = timeLimitSeconds > 0 ? timeLimitSeconds : "無制限";
+
+            // v5: ホストの設定入力欄を更新
+            if (isHost) {
+                maxPicksInput.value = maxPicks;
+                timeLimitInput.value = timeLimitSeconds;
+                
+                // ドラフト中は設定を無効化
+                const isDrafting = status === 'drafting' || status === 'finished';
+                maxPicksInput.disabled = isDrafting;
+                timeLimitInput.disabled = isDrafting;
+                if(isDrafting) {
+                    draftSettingsEl.classList.add("opacity-60");
+                } else {
+                    draftSettingsEl.classList.remove("opacity-60");
+                }
+            }
         }
 
         // カードプール（残りカード）のUI更新
@@ -3528,9 +3577,6 @@
                 let statusText = "";
                 let statusClass = "";
 
-                // 表示用のステータス
-                // (status: waiting | selecting | selected | waiting_next_pick)
-                // (result: pending | unique | conflict | won_lotto | lost_lotto)
                 const selectionResult = p.selectionHistory.find(h => h.round === localRoomData?.currentRound && h.pick === localRoomData?.currentPick)?.status;
 
                 if (localRoomData?.status === 'waiting') {
@@ -3545,6 +3591,9 @@
                 } else if (p.status === 'selecting') {
                     statusText = "選択中...";
                     statusClass = "status-selecting";
+                } else if (p.status === 'selected' && p.selectedCardId === null) {
+                    statusText = "パス"; // v5: 時間切れなどで未選択
+                    statusClass = "status-lost_lotto";
                 } else if (p.status === 'selected') {
                     statusText = "選択済み";
                     statusClass = "status-selected";
@@ -3568,7 +3617,7 @@
             });
         }
 
-        // 自分のステータスUI更新
+        // 自分のステータスUI更新 (タイマーロジック含む)
         function updateMyStatusUI(participants) {
             const me = participants.find(p => p.id === currentUserId);
             if (!me) return;
@@ -3587,6 +3636,8 @@
                 myStatusText = "抽選敗北 (再選択)";
             } else if (me.status === 'selecting') {
                 myStatusText = "あなたの番です: カードを選択してください";
+            } else if (me.status === 'selected' && me.selectedCardId === null) {
+                myStatusText = "パスしました (ホスト開示待ち)";
             } else if (me.status === 'selected') {
                 myStatusText = "選択済み (ホストの開示待ち)";
             } else if (me.status === 'waiting_next_pick') {
@@ -3602,6 +3653,10 @@
                 mySelectedCardEl.textContent = card ? card.name : "不明なカード";
                 mySelectedCardEl.classList.remove("text-gray-700");
                 mySelectedCardEl.classList.add("text-gray-900", "font-semibold");
+            } else if (me.status === 'selected') {
+                mySelectedCardEl.textContent = "パス (未選択)";
+                mySelectedCardEl.classList.add("text-gray-700");
+                mySelectedCardEl.classList.remove("text-gray-900", "font-semibold");
             } else {
                 mySelectedCardEl.textContent = "未選択";
                 mySelectedCardEl.classList.add("text-gray-700");
@@ -3612,13 +3667,16 @@
             if (me.status === 'selecting' && localRoomData?.status === 'drafting') {
                 openCardPickerBtn.disabled = false;
                 openCardPickerBtn.textContent = "カードを選択する";
-            } else if (me.status === 'selected') {
+            } else if (me.status === 'selected' && localRoomData?.status === 'drafting') {
                 openCardPickerBtn.disabled = false;
                 openCardPickerBtn.textContent = "選択を変更する";
             } else {
                 openCardPickerBtn.disabled = true;
                 openCardPickerBtn.textContent = "選択できません";
             }
+
+            // v5: タイマー処理
+            handlePickTimer(localRoomData, me);
 
             // 自分の獲得カードリスト
             myAcquiredCardsEl.innerHTML = "";
@@ -3647,7 +3705,7 @@
             table += `<thead class="bg-gray-100"><tr>`;
             table += `<th class="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">参加者</th>`;
             
-            const rounds = Math.max(maxRound, ...participants.flatMap(p => p.selectionHistory.map(h => h.round)));
+            const rounds = Math.max(localRoomData?.maxPicks ?? 1, maxRound, ...participants.flatMap(p => p.selectionHistory.map(h => h.round)));
             
             for (let r = 1; r <= rounds; r++) {
                  table += `<th class="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">R${r}</th>`;
@@ -3701,12 +3759,9 @@
                 endDraftBtn.classList.add("hidden");
 
                 participantCountSpan.textContent = allParticipants.length;
-                startDraftBtn.disabled = allParticipants.length < 4; // 4人以上で開始可能 (要件より)
-                if(allParticipants.length < 4) {
-                    startDraftBtn.title = "4人以上でドラフトを開始できます";
-                } else {
-                    startDraftBtn.title = "";
-                }
+                // v6: 4人制限を解除し、常に開始できるように変更
+                startDraftBtn.disabled = false; 
+                startDraftBtn.title = ""; // 常に有効なため、titleもリセット
             }
             // ドラフト中
             else if (status === 'drafting') {
@@ -3785,10 +3840,11 @@
             cardListEl.innerHTML = "";
             availableCards.forEach(card => {
                 const isSelected = selectedCardIdInPicker === card.id;
+                
+                // v4: imgタグと関連クラスを削除し、シンプルなリストに変更
                 cardListEl.innerHTML += `
-                    <div class="card-list-item relative flex items-center p-4 border-2 rounded-lg cursor-pointer transition ${isSelected ? 'border-blue-500 bg-blue-100' : 'border-gray-200 hover:bg-gray-50'}" data-card-id="${card.id}">
-                        <img src="${card.imageUrl}" alt="${card.name}" class="absolute inset-0 w-full h-full object-cover rounded-lg -z-10">
-                        <span class="font-semibold text-lg text-gray-900 z-10">${card.name}</span>
+                    <div class="card-list-item flex items-center p-4 border-2 rounded-lg cursor-pointer transition ${isSelected ? 'border-blue-500 bg-blue-100' : 'border-gray-200 hover:bg-gray-50'}" data-card-id="${card.id}">
+                        <span class="font-semibold text-lg text-gray-900">${card.name}</span>
                     </div>
                 `;
             });
@@ -3831,7 +3887,102 @@
         });
 
 
+        // --- v5: タイマー処理 ---
+        function handlePickTimer(roomData, me) {
+            // 他の人のターンならタイマークリア
+            if (me.status !== 'selecting' || roomData.status !== 'drafting') {
+                if (pickTimeout) clearTimeout(pickTimeout);
+                if (pickInterval) clearInterval(pickInterval);
+                pickTimerDisplayEl.classList.add("hidden");
+                return;
+            }
+
+            const timeLimit = roomData.timeLimitSeconds;
+            // 時間無制限
+            if (timeLimit <= 0) {
+                pickTimerDisplayEl.classList.add("hidden");
+                return;
+            }
+
+            // pickStartTime (サーバー時刻) を基準にする
+            if (!roomData.pickStartTime || !roomData.pickStartTime.toDate) {
+                console.log("タイマー待機中 (pickStartTime未設定)");
+                return;
+            }
+
+            const startTime = roomData.pickStartTime.toDate().getTime();
+            const endTime = startTime + timeLimit * 1000;
+
+            // --- 既存のタイマーをクリア ---
+            if (pickTimeout) clearTimeout(pickTimeout);
+            if (pickInterval) clearInterval(pickInterval);
+            // --- ----------------------- ---
+            
+            pickTimerDisplayEl.classList.remove("hidden");
+
+            const updateTimerDisplay = () => {
+                const now = Date.now();
+                const remaining = Math.max(0, endTime - now);
+                const remainingSeconds = Math.ceil(remaining / 1000);
+                
+                timerCountdownEl.textContent = remainingSeconds.toString().padStart(2, '0');
+
+                if (remaining <= 0) {
+                    clearInterval(pickInterval);
+                }
+            };
+
+            // 時間切れで自動パス (selectedCardId: null)
+            const timeRemainingForTimeout = endTime - Date.now();
+            if (timeRemainingForTimeout <= 0) {
+                // すでに時間切れ
+                autoPassSelection();
+            } else {
+                updateTimerDisplay(); // 1回目の描画
+                pickInterval = setInterval(updateTimerDisplay, 1000); // 描画更新タイマー
+                pickTimeout = setTimeout(autoPassSelection, timeRemainingForTimeout); // 時間切れ処理タイマー
+            }
+        }
+
+        async function autoPassSelection() {
+            // me がまだ 'selecting' 状態か再確認
+            const me = localParticipantsData.find(p => p.id === currentUserId);
+            if (!me || me.status !== 'selecting') {
+                return; // 既に選択済み
+            }
+            
+            console.log("時間切れ: 自動パスします。");
+            showMessage("時間切れです。自動的にパスしました。", "error");
+            
+            try {
+                const participantRef = doc(db, "rooms", currentRoomId, "participants", currentUserId);
+                await updateDoc(participantRef, {
+                    selectedCardId: null, // パス
+                    status: "selected"
+                });
+                cardPickerModalEl.classList.add("hidden"); // モーダルを閉じる
+            } catch (error) {
+                console.error("自動パス処理エラー:", error);
+            }
+        }
+
+
         // --- ホスト操作 ---
+
+        // v5: ホスト設定のリスナー
+        function setupHostSettingsListeners() {
+            maxPicksInput.addEventListener("change", (e) => {
+                if (!isHost || !currentRoomId) return;
+                const value = parseInt(e.target.value) || 20;
+                updateDoc(doc(db, "rooms", currentRoomId), { maxPicks: value });
+            });
+            
+            timeLimitInput.addEventListener("change", (e) => {
+                if (!isHost || !currentRoomId) return;
+                const value = parseInt(e.target.value) || 60;
+                updateDoc(doc(db, "rooms", currentRoomId), { timeLimitSeconds: value });
+            });
+        }
 
         // ドラフト開始
         startDraftBtn.addEventListener("click", async () => {
@@ -3842,7 +3993,10 @@
                 
                 // ルームステータスを更新
                 const roomRef = doc(db, "rooms", currentRoomId);
-                batch.update(roomRef, { status: "drafting" });
+                batch.update(roomRef, { 
+                    status: "drafting",
+                    pickStartTime: serverTimestamp() // v5: 1巡目のタイマー開始
+                });
 
                 // 全参加者のステータスを "selecting" に更新
                 localParticipantsData.forEach(p => {
@@ -3860,7 +4014,6 @@
 
         // カード一斉開示
         revealCardsBtn.addEventListener("click", async () => {
-            // 現在の巡目で選択対象だった人 (selected状態の人)
             const targets = localParticipantsData.filter(p => p.status === 'selected');
             if (targets.length === 0) {
                 showMessage("開示対象の参加者がいません。", "error");
@@ -3874,6 +4027,12 @@
             const selections = new Map(); // K: cardId, V: [userId1, userId2, ...]
             targets.forEach(p => {
                 const cardId = p.selectedCardId;
+                
+                // v5: パス(null)した人は集計から除外
+                if(cardId === null) {
+                    return;
+                }
+
                 if (!selections.has(cardId)) {
                     selections.set(cardId, []);
                 }
@@ -3887,6 +4046,14 @@
                 const roomRef = doc(db, "rooms", currentRoomId);
                 let pool = localRoomData.draftPool;
                 let conflictsExist = false;
+                
+                // v5: パスした人 (selectedCardId: null) の処理
+                const passedUsers = targets.filter(p => p.selectedCardId === null);
+                passedUsers.forEach(p => {
+                    const pRef = doc(db, "rooms", currentRoomId, "participants", p.id);
+                    // パスした人は、抽選敗者と同じ扱いで 'selecting' に戻る
+                    batch.update(pRef, { status: "selecting" });
+                });
 
                 selections.forEach((userIds, cardId) => {
                     const card = cardDataMap.get(cardId);
@@ -3903,7 +4070,6 @@
                             status: "acquired" 
                         };
                         
-                        // 履歴を更新 (既存の履歴 + 新しいエントリー)
                         const participant = localParticipantsData.find(p => p.id === userId);
                         const newHistory = [...(participant.selectionHistory || []), newHistoryEntry];
                         
@@ -3935,20 +4101,24 @@
 
                             batch.update(pRef, {
                                 status: "waiting_lotto", // 抽選待ち
-                                // selectedCardId は抽選が終わるまで保持
                                 selectionHistory: newHistory
                             });
                         });
                     }
                 });
                 
-                // カードプールを更新
-                batch.update(roomRef, { draftPool: pool });
+                // v5: pickStartTime をリセット (抽選 or 次巡まではタイマー停止)
+                batch.update(roomRef, { 
+                    draftPool: pool,
+                    pickStartTime: null 
+                });
 
                 await batch.commit();
                 
                 if (conflictsExist) {
                     showMessage("指名が重複しました。抽選を行ってください。", "info");
+                } else if (passedUsers.length > 0) {
+                     showMessage("開示しました。パスした人は再選択してください。", "info");
                 } else {
                     showMessage("単独指名が確定しました。次の巡目へ進んでください。", "success");
                 }
@@ -3965,7 +4135,6 @@
             const currentRound = localRoomData.currentRound;
             const currentPick = localRoomData.currentPick;
 
-            // 抽選対象グループを特定 { cardId: [userId1, userId2, ...] }
             const lottoGroups = new Map();
             localParticipantsData.forEach(p => {
                 const conflictEntry = p.selectionHistory.find(
@@ -3992,6 +4161,7 @@
                 const roomRef = doc(db, "rooms", currentRoomId);
                 let pool = localRoomData.draftPool;
                 let lottoResultsMessage = "抽選結果:\n";
+                let losersExist = false; // v5: 落選者がいるか
 
                 lottoGroups.forEach((userIds, cardId) => {
                     // 抽選実行
@@ -4003,7 +4173,6 @@
                         const pRef = doc(db, "rooms", currentRoomId, "participants", userId);
                         const participant = localParticipantsData.find(p => p.id === userId);
                         
-                        // 履歴を更新 (conflict -> acquired / lost_lotto)
                         const newHistory = participant.selectionHistory.map(h => {
                            if (h.round === currentRound && h.pick === currentPick && h.cardId === cardId) {
                                return { ...h, status: (userId === winnerId) ? 'acquired' : 'lost_lotto' };
@@ -4023,6 +4192,7 @@
                             pool = pool.filter(id => id !== cardId);
                         } else {
                             // --- 落選者 ---
+                            losersExist = true;
                             batch.update(pRef, {
                                 status: "selecting", // 再度選択へ
                                 selectedCardId: null,
@@ -4033,7 +4203,11 @@
                 });
                 
                 // カードプール更新
-                batch.update(roomRef, { draftPool: pool });
+                batch.update(roomRef, { 
+                    draftPool: pool,
+                    // v5: 落選者がいる場合、タイマーをスタートさせる
+                    pickStartTime: losersExist ? serverTimestamp() : null
+                });
 
                 await batch.commit();
                 showMessage("抽選を実行しました。外れた人は再選択してください。", "success");
@@ -4056,9 +4230,19 @@
                 return;
             }
 
+            const roomRef = doc(db, "rooms", currentRoomId);
+            const nextRound = localRoomData.currentRound + 1;
+            
+            // v5: 上限ラウンド数チェック
+            if (nextRound > localRoomData.maxPicks) {
+                 await updateDoc(roomRef, { status: "finished", pickStartTime: null });
+                 showMessage(`設定された ${localRoomData.maxPicks} ラウンドが終了しました。ドラフトを終了します。`, "success");
+                 return;
+            }
+
             // プールが空かチェック
             if (localRoomData.draftPool.length === 0) {
-                 await updateDoc(doc(db, "rooms", currentRoomId), { status: "finished" });
+                 await updateDoc(roomRef, { status: "finished", pickStartTime: null });
                  showMessage("カードプールが空になりました。ドラフトを終了します。", "success");
                  return;
             }
@@ -4066,18 +4250,13 @@
             try {
                 const batch = writeBatch(db);
                 
-                // ルームの巡目/ラウンドを更新
-                const roomRef = doc(db, "rooms", currentRoomId);
-                let nextRound = localRoomData.currentRound;
-                let nextPick = localRoomData.currentPick + 1;
-                
                 // 全員が獲得したので、次の「ラウンド」に進む
-                nextRound = localRoomData.currentRound + 1;
-                nextPick = 1;
+                const nextPick = 1;
 
                 batch.update(roomRef, { 
                     currentRound: nextRound,
-                    currentPick: nextPick
+                    currentPick: nextPick,
+                    pickStartTime: serverTimestamp() // v5: 次のラウンドのタイマー開始
                 });
 
                 // 全参加者のステータスを "selecting" に戻す
@@ -4099,7 +4278,7 @@
         endDraftBtn.addEventListener("click", async () => {
              if (!confirm("本当にドラフトを終了しますか？")) return;
              try {
-                 await updateDoc(doc(db, "rooms", currentRoomId), { status: "finished" });
+                 await updateDoc(doc(db, "rooms", currentRoomId), { status: "finished", pickStartTime: null });
                  showMessage("ドラフトが終了しました。", "success");
              } catch (error) {
                  console.error("ドラフト終了エラー:", error);
