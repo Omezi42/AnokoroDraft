@@ -10,11 +10,6 @@
     "imageUrl": "/images/illustrations/おしゃべりなオウム_transparent.png"
   },
   {
-    "id": "おちゃめな魔法使い",
-    "name": "おちゃめな魔法使い",
-    "imageUrl": "/images/illustrations/おちゃめな魔法使い_transparent.png"
-  },
-  {
     "id": "かたい貝",
     "name": "かたい貝",
     "imageUrl": "/images/illustrations/かたい貝_transparent.png"
@@ -100,6 +95,11 @@
     "imageUrl": "/images/illustrations/ウミガメ_transparent.png"
   },
   {
+    "id": "エクリプスドラゴン",
+    "name": "エクリプスドラゴン",
+    "imageUrl": "/images/illustrations/エクリプスドラゴン_transparent.png"
+  },
+  {
     "id": "エレメンタルエルフ",
     "name": "エレメンタルエルフ",
     "imageUrl": "/images/illustrations/エレメンタルエルフ_transparent.png"
@@ -108,6 +108,11 @@
     "id": "オオカミ",
     "name": "オオカミ",
     "imageUrl": "/images/illustrations/オオカミ_transparent.png"
+  },
+  {
+    "id": "オリカ・バリアー",
+    "name": "オリカ・バリアー",
+    "imageUrl": "/images/illustrations/オリカ・バリアー_transparent.png"
   },
   {
     "id": "オーガ",
@@ -323,11 +328,6 @@
     "id": "ネクロマンサー",
     "name": "ネクロマンサー",
     "imageUrl": "/images/illustrations/ネクロマンサー_transparent.png"
-  },
-  {
-    "id": "ノーマルエネルギー",
-    "name": "ノーマルエネルギー",
-    "imageUrl": "/images/illustrations/ノーマルエネルギー_transparent.png"
   },
   {
     "id": "ハイドロエネルギー",
@@ -650,11 +650,6 @@
     "imageUrl": "/images/illustrations/兵隊アリ_transparent.png"
   },
   {
-    "id": "兵龍マウナ",
-    "name": "兵龍マウナ",
-    "imageUrl": "/images/illustrations/兵龍マウナ_transparent.png"
-  },
-  {
     "id": "円海島",
     "name": "円海島",
     "imageUrl": "/images/illustrations/円海島_transparent.png"
@@ -805,9 +800,9 @@
     "imageUrl": "/images/illustrations/古城の呪剣_transparent.png"
   },
   {
-    "id": "呆れたエイ",
-    "name": "呆れたエイ",
-    "imageUrl": "/images/illustrations/呆れたエイ_transparent.png"
+    "id": "呆れるエイ",
+    "name": "呆れるエイ",
+    "imageUrl": "/images/illustrations/呆れるエイ_transparent.png"
   },
   {
     "id": "呪書の悪魔",
@@ -1000,9 +995,9 @@
     "imageUrl": "/images/illustrations/子供オーガ_transparent.png"
   },
   {
-    "id": "存在の照明",
-    "name": "存在の照明",
-    "imageUrl": "/images/illustrations/存在の照明_transparent.png"
+    "id": "存在の証明",
+    "name": "存在の証明",
+    "imageUrl": "/images/illustrations/存在の証明_transparent.png"
   },
   {
     "id": "孤独",
@@ -1085,6 +1080,16 @@
     "imageUrl": "/images/illustrations/尖晶石の晶翼_transparent.png"
   },
   {
+    "id": "尖晶石の桃鱗",
+    "name": "尖晶石の桃鱗",
+    "imageUrl": "/images/illustrations/尖晶石の桃鱗_transparent.png"
+  },
+  {
+    "id": "尖晶石の片腕",
+    "name": "尖晶石の片腕",
+    "imageUrl": "/images/illustrations/尖晶石の片腕_transparent.png"
+  },
+  {
     "id": "尖晶石の精霊",
     "name": "尖晶石の精霊",
     "imageUrl": "/images/illustrations/尖晶石の精霊_transparent.png"
@@ -1108,6 +1113,11 @@
     "id": "岩の人形",
     "name": "岩の人形",
     "imageUrl": "/images/illustrations/岩の人形_transparent.png"
+  },
+  {
+    "id": "岳龍マウナ",
+    "name": "岳龍マウナ",
+    "imageUrl": "/images/illustrations/岳龍マウナ_transparent.png"
   },
   {
     "id": "崖上からの奇襲",
@@ -1393,6 +1403,11 @@
     "id": "暴牙のティラノ",
     "name": "暴牙のティラノ",
     "imageUrl": "/images/illustrations/暴牙のティラノ_transparent.png"
+  },
+  {
+    "id": "暴虐の鎌",
+    "name": "暴虐の鎌",
+    "imageUrl": "/images/illustrations/暴虐の鎌_transparent.png"
   },
   {
     "id": "最終兵器：MS",
@@ -2385,6 +2400,11 @@
     "imageUrl": "/images/illustrations/虚の財宝_transparent.png"
   },
   {
+    "id": "蜂目再生",
+    "name": "蜂目再生",
+    "imageUrl": "/images/illustrations/蜂目再生_transparent.png"
+  },
+  {
     "id": "蝿取草の魔物",
     "name": "蝿取草の魔物",
     "imageUrl": "/images/illustrations/蝿取草の魔物_transparent.png"
@@ -2555,6 +2575,16 @@
     "imageUrl": "/images/illustrations/酸性雨_transparent.png"
   },
   {
+    "id": "野戦の騎兵",
+    "name": "野戦の騎兵",
+    "imageUrl": "/images/illustrations/野戦の騎兵_transparent.png"
+  },
+  {
+    "id": "量産型タイロス",
+    "name": "量産型タイロス",
+    "imageUrl": "/images/illustrations/量産型タイロス_transparent.png"
+  },
+  {
     "id": "金貨の悪魔",
     "name": "金貨の悪魔",
     "imageUrl": "/images/illustrations/金貨の悪魔_transparent.png"
@@ -2573,6 +2603,11 @@
     "id": "鈍化",
     "name": "鈍化",
     "imageUrl": "/images/illustrations/鈍化_transparent.png"
+  },
+  {
+    "id": "鉄漁り",
+    "name": "鉄漁り",
+    "imageUrl": "/images/illustrations/鉄漁り_transparent.png"
   },
   {
     "id": "鉄鎧のアンキロ",
@@ -2603,6 +2638,11 @@
     "id": "銀雪の蒼竜",
     "name": "銀雪の蒼竜",
     "imageUrl": "/images/illustrations/銀雪の蒼竜_transparent.png"
+  },
+  {
+    "id": "銀雪原",
+    "name": "銀雪原",
+    "imageUrl": "/images/illustrations/銀雪原_transparent.png"
   },
   {
     "id": "銀雪夜",
@@ -2738,6 +2778,11 @@
     "id": "飛びナイフ",
     "name": "飛びナイフ",
     "imageUrl": "/images/illustrations/飛びナイフ_transparent.png"
+  },
+  {
+    "id": "飛びレイピア",
+    "name": "飛びレイピア",
+    "imageUrl": "/images/illustrations/飛びレイピア_transparent.png"
   },
   {
     "id": "飛天の騎獣",

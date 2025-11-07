@@ -78,13 +78,14 @@
         <!-- ドラフト会議室メイン画面 -->
         <div id="draft-room" class="hidden">
             <!-- ヘッダー -->
+            <!-- v6: ホストコントロールを格納するためレイアウト変更 -->
             <header class="bg-white rounded-2xl shadow-lg p-6 mb-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div>
                         <h1 class="text-3xl font-bold text-gray-900">ドラフト会議</h1>
                         <p id="room-status-text" class="text-xl font-semibold text-blue-700 mt-2">参加者待機中...</p>
                     </div>
-                    <div class="mt-4 md:mt-0">
+                    <div class="mt-4 md:mt-0 w-full md:w-auto">
                         <!-- v5: ドラフト設定表示 (全参加者) -->
                         <div class="text-sm text-gray-700 text-right mb-2">
                             <span>ラウンド上限: <span id="max-picks-display" class="font-semibold">N/A</span></span> |
@@ -102,19 +103,12 @@
                         <div id="copy-message" class="text-sm text-green-600 mt-1 h-4"></div>
                     </div>
                 </div>
-            </header>
 
-            <!-- メインコンテンツ (2カラム) -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-                <!-- 左カラム: 参加者 & コントロール -->
-                <div class="lg:col-span-1 space-y-6">
-                    <!-- ホストコントロールパネル -->
-                    <div id="host-controls" class="hidden bg-white p-6 rounded-2xl shadow-lg">
-                        <h2 class="text-xl font-bold mb-4">ホストコントロール</h2>
-                        
+                <!-- v6: ホストコントロールをヘッダー内に移動 -->
+                <div id="host-controls" class="hidden mt-6 pt-4 border-t border-gray-200">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
                         <!-- v5: ドラフト設定 (ホストのみ) -->
-                        <div id="draft-settings" class="space-y-4 mb-6 pt-4 border-t border-gray-200">
+                        <div id="draft-settings" class="space-y-4 pt-2 md:w-1/2">
                             <h3 class="text-lg font-semibold text-gray-800">ドラフト設定</h3>
                             <div>
                                 <label for="max-picks-input" class="block text-sm font-medium text-gray-700 mb-1">
@@ -130,7 +124,7 @@
                             </div>
                         </div>
 
-                        <div class="space-y-3">
+                        <div class="space-y-3 md:w-1/2">
                             <button id="start-draft-btn" class="w-full bg-green-600 text-white font-bold py-3 px-5 rounded-lg shadow-md hover:bg-green-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                 ドラフト開始 (参加者 <span id="participant-count">0</span> 人)
                             </button>
@@ -148,6 +142,16 @@
                             </button>
                         </div>
                     </div>
+                </div>
+
+            </header>
+
+            <!-- メインコンテンツ (2カラム) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- 左カラム: 参加者 & コントロール -->
+                <div class="lg:col-span-1 space-y-6">
+                    <!-- ホストコントロールパネル (v6: ヘッダーに移動) -->
 
                     <!-- 自分のステータス -->
                     <div class="bg-white p-6 rounded-2xl shadow-lg">
@@ -296,11 +300,6 @@
     "imageUrl": "/images/illustrations/おしゃべりなオウム_transparent.png"
   },
   {
-    "id": "おちゃめな魔法使い",
-    "name": "おちゃめな魔法使い",
-    "imageUrl": "/images/illustrations/おちゃめな魔法使い_transparent.png"
-  },
-  {
     "id": "かたい貝",
     "name": "かたい貝",
     "imageUrl": "/images/illustrations/かたい貝_transparent.png"
@@ -386,6 +385,11 @@
     "imageUrl": "/images/illustrations/ウミガメ_transparent.png"
   },
   {
+    "id": "エクリプスドラゴン",
+    "name": "エクリプスドラゴン",
+    "imageUrl": "/images/illustrations/エクリプスドラゴン_transparent.png"
+  },
+  {
     "id": "エレメンタルエルフ",
     "name": "エレメンタルエルフ",
     "imageUrl": "/images/illustrations/エレメンタルエルフ_transparent.png"
@@ -394,6 +398,11 @@
     "id": "オオカミ",
     "name": "オオカミ",
     "imageUrl": "/images/illustrations/オオカミ_transparent.png"
+  },
+  {
+    "id": "オリカ・バリアー",
+    "name": "オリカ・バリアー",
+    "imageUrl": "/images/illustrations/オリカ・バリアー_transparent.png"
   },
   {
     "id": "オーガ",
@@ -931,11 +940,6 @@
     "imageUrl": "/images/illustrations/兵隊アリ_transparent.png"
   },
   {
-    "id": "兵龍マウナ",
-    "name": "兵龍マウナ",
-    "imageUrl": "/images/illustrations/兵龍マウナ_transparent.png"
-  },
-  {
     "id": "円海島",
     "name": "円海島",
     "imageUrl": "/images/illustrations/円海島_transparent.png"
@@ -1086,9 +1090,9 @@
     "imageUrl": "/images/illustrations/古城の呪剣_transparent.png"
   },
   {
-    "id": "呆れたエイ",
-    "name": "呆れたエイ",
-    "imageUrl": "/images/illustrations/呆れたエイ_transparent.png"
+    "id": "呆れるエイ",
+    "name": "呆れるエイ",
+    "imageUrl": "/images/illustrations/呆れるエイ_transparent.png"
   },
   {
     "id": "呪書の悪魔",
@@ -1281,9 +1285,9 @@
     "imageUrl": "/images/illustrations/子供オーガ_transparent.png"
   },
   {
-    "id": "存在の照明",
-    "name": "存在の照明",
-    "imageUrl": "/images/illustrations/存在の照明_transparent.png"
+    "id": "存在の証明",
+    "name": "存在の証明",
+    "imageUrl": "/images/illustrations/存在の証明_transparent.png"
   },
   {
     "id": "孤独",
@@ -1366,6 +1370,16 @@
     "imageUrl": "/images/illustrations/尖晶石の晶翼_transparent.png"
   },
   {
+    "id": "尖晶石の桃鱗",
+    "name": "尖晶石の桃鱗",
+    "imageUrl": "/images/illustrations/尖晶石の桃鱗_transparent.png"
+  },
+  {
+    "id": "尖晶石の片腕",
+    "name": "尖晶石の片腕",
+    "imageUrl": "/images/illustrations/尖晶石の片腕_transparent.png"
+  },
+  {
     "id": "尖晶石の精霊",
     "name": "尖晶石の精霊",
     "imageUrl": "/images/illustrations/尖晶石の精霊_transparent.png"
@@ -1389,6 +1403,11 @@
     "id": "岩の人形",
     "name": "岩の人形",
     "imageUrl": "/images/illustrations/岩の人形_transparent.png"
+  },
+  {
+    "id": "岳龍マウナ",
+    "name": "岳龍マウナ",
+    "imageUrl": "/images/illustrations/岳龍マウナ_transparent.png"
   },
   {
     "id": "崖上からの奇襲",
@@ -1674,6 +1693,11 @@
     "id": "暴牙のティラノ",
     "name": "暴牙のティラノ",
     "imageUrl": "/images/illustrations/暴牙のティラノ_transparent.png"
+  },
+  {
+    "id": "暴虐の鎌",
+    "name": "暴虐の鎌",
+    "imageUrl": "/images/illustrations/暴虐の鎌_transparent.png"
   },
   {
     "id": "最終兵器：MS",
@@ -2666,6 +2690,11 @@
     "imageUrl": "/images/illustrations/虚の財宝_transparent.png"
   },
   {
+    "id": "蜂目再生",
+    "name": "蜂目再生",
+    "imageUrl": "/images/illustrations/蜂目再生_transparent.png"
+  },
+  {
     "id": "蝿取草の魔物",
     "name": "蝿取草の魔物",
     "imageUrl": "/images/illustrations/蝿取草の魔物_transparent.png"
@@ -2836,6 +2865,16 @@
     "imageUrl": "/images/illustrations/酸性雨_transparent.png"
   },
   {
+    "id": "野戦の騎兵",
+    "name": "野戦の騎兵",
+    "imageUrl": "/images/illustrations/野戦の騎兵_transparent.png"
+  },
+  {
+    "id": "量産型タイロス",
+    "name": "量産型タイロス",
+    "imageUrl": "/images/illustrations/量産型タイロス_transparent.png"
+  },
+  {
     "id": "金貨の悪魔",
     "name": "金貨の悪魔",
     "imageUrl": "/images/illustrations/金貨の悪魔_transparent.png"
@@ -2854,6 +2893,11 @@
     "id": "鈍化",
     "name": "鈍化",
     "imageUrl": "/images/illustrations/鈍化_transparent.png"
+  },
+  {
+    "id": "鉄漁り",
+    "name": "鉄漁り",
+    "imageUrl": "/images/illustrations/鉄漁り_transparent.png"
   },
   {
     "id": "鉄鎧のアンキロ",
@@ -2884,6 +2928,11 @@
     "id": "銀雪の蒼竜",
     "name": "銀雪の蒼竜",
     "imageUrl": "/images/illustrations/銀雪の蒼竜_transparent.png"
+  },
+  {
+    "id": "銀雪原",
+    "name": "銀雪原",
+    "imageUrl": "/images/illustrations/銀雪原_transparent.png"
   },
   {
     "id": "銀雪夜",
@@ -3019,6 +3068,11 @@
     "id": "飛びナイフ",
     "name": "飛びナイフ",
     "imageUrl": "/images/illustrations/飛びナイフ_transparent.png"
+  },
+  {
+    "id": "飛びレイピア",
+    "name": "飛びレイピア",
+    "imageUrl": "/images/illustrations/飛びレイピア_transparent.png"
   },
   {
     "id": "飛天の騎獣",
@@ -3585,9 +3639,15 @@
                 } else if (selectionResult === 'unique' || selectionResult === 'won_lotto') {
                     statusText = "獲得確定";
                     statusClass = selectionResult === 'unique' ? "status-unique" : "status-won_lotto";
+                
                 } else if (selectionResult === 'conflict' || selectionResult === 'lost_lotto') {
-                     statusText = "抽選待ち/失敗";
-                     statusClass = selectionResult === 'conflict' ? "status-conflict" : "status-lost_lotto";
+                     // v6: 重複したカード名を表示
+                    const conflictEntry = p.selectionHistory.find(h => h.round === localRoomData?.currentRound && h.pick === localRoomData?.currentPick && (h.status === 'conflict' || h.status === 'lost_lotto'));
+                    const cardName = conflictEntry ? (cardDataMap.get(conflictEntry.cardId)?.name ?? '不明') : '不明';
+                    
+                    statusText = `抽選${selectionResult === 'lost_lotto' ? '失敗' : '待ち'} <br> (${cardName})`;
+                    statusClass = selectionResult === 'conflict' ? "status-conflict" : "status-lost_lotto";
+
                 } else if (p.status === 'selecting') {
                     statusText = "選択中...";
                     statusClass = "status-selecting";
@@ -3605,13 +3665,13 @@
                     statusClass = "status-waiting";
                 }
 
-
+                // v6: statusText に <br> が入る可能性があるので、span -> div に変更
                 participantsGridEl.innerHTML += `
                     <div class="${statusClass} border-2 rounded-lg p-3 text-center shadow-sm transition-all duration-300">
                         <span class="font-semibold block truncate" title="${p.name}">
                             ${p.name} ${p.isHost ? '(H)' : ''}
                         </span>
-                        <span class="text-sm text-gray-700 font-medium">${statusText}</span>
+                        <div class="text-sm text-gray-700 font-medium leading-tight">${statusText}</div>
                     </div>
                 `;
             });
@@ -3759,9 +3819,9 @@
                 endDraftBtn.classList.add("hidden");
 
                 participantCountSpan.textContent = allParticipants.length;
-                // v6: 4人制限を解除し、常に開始できるように変更
+                // v6: 4人制限を解除 (v5のファイルでは4人制限のままだったので、ここで解除を適用)
                 startDraftBtn.disabled = false; 
-                startDraftBtn.title = ""; // 常に有効なため、titleもリセット
+                startDraftBtn.title = ""; 
             }
             // ドラフト中
             else if (status === 'drafting') {

@@ -7,7 +7,7 @@ const path = require('path');
 
 // 「カード名_transparent.png」ファイルが保存されているディレクトリパス
 // （例: './public/images/illustrations' や 'C:/Users/knaze/Documents/GitHub/AnokoroDraft/public/images/illustrations' など）
-const illustDir = './public/images/illustrations'; 
+const illustDir = './images/illustrations'; 
 
 // 出力する JSON ファイルのパスと名前
 // （例: './public/data/card_list.json'）
