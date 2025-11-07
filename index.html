@@ -181,6 +181,11 @@
                                 <!-- <li>カード名 (R1-P1)</li> -->
                             </ul>
                         </div>
+                        
+                        <!-- v7: 退室ボタン -->
+                        <button id="leave-room-btn" class="w-full mt-6 bg-gray-500 text-white font-bold py-2 px-4 rounded-lg shadow hover:bg-gray-600 transition duration-300 text-sm">
+                            ロビーから退室する
+                        </button>
                     </div>
 
                     <!-- 参加者一覧 (グリッド) -->
@@ -3237,6 +3242,8 @@
         const mySelectedCardEl = $("#my-selected-card");
         const openCardPickerBtn = $("#open-card-picker-btn");
         const myAcquiredCardsEl = $("#my-acquired-cards");
+        // v7: 退室ボタン
+        const leaveRoomBtn = $("#leave-room-btn");
 
         const participantsGridEl = $("#participants-grid");
         const draftBoardContainerEl = $("#draft-board-container");
@@ -3284,6 +3291,8 @@
 
             handleAuthentication();
             setupHostSettingsListeners();
+            // v7: 退室・キックのリスナー設定
+            setupLeaveAndKickListeners();
         });
 
         // --- 認証処理 ---
@@ -3487,6 +3496,66 @@
             window.getSelection().removeAllRanges(); // 選択解除
         });
 
+        // v7: 退室・キック処理リスナー
+        function setupLeaveAndKickListeners() {
+            // 退室処理
+            leaveRoomBtn.addEventListener("click", async () => {
+                if (!currentRoomId || !currentUserId) return;
+                
+                // ホストが退室する場合の処理
+                if (isHost) {
+                    if (!confirm("あなたが退室すると、このドラフトロビーは解散されます。よろしいですか？")) {
+                        return;
+                    }
+                    try {
+                        // ルームを終了ステータスにする (参加者全員が終了を検知できるように)
+                        await updateDoc(doc(db, "rooms", currentRoomId), { status: "finished", pickStartTime: null });
+                        // 自分のドキュメントを削除
+                        await deleteDoc(doc(db, "rooms", currentRoomId, "participants", currentUserId));
+                        
+                    } catch (error) {
+                        console.error("ホストの退室処理エラー:", error);
+                    }
+                } else {
+                    // 参加者の退室
+                    if (!confirm("ロビーから退室しますか？")) {
+                        return;
+                    }
+                    try {
+                        await deleteDoc(doc(db, "rooms", currentRoomId, "participants", currentUserId));
+                    } catch (error) {
+                        console.error("参加者の退室処理エラー:", error);
+                    }
+                }
+
+                // リスナーを解除してリロード
+                if (roomUnsubscribe) roomUnsubscribe();
+                if (participantsUnsubscribe) participantsUnsubscribe();
+                window.location.href = window.location.pathname;
+            });
+
+            // キック処理 (イベントデリゲーション)
+            participantsGridEl.addEventListener("click", async (e) => {
+                const kickBtn = e.target.closest(".kick-btn");
+                if (!kickBtn || !isHost) return;
+
+                const userIdToKick = kickBtn.dataset.kickId;
+                const userNameToKick = kickBtn.dataset.kickName || "参加者";
+                
+                if (userIdToKick === currentUserId) return; // 自分はキックできない
+
+                if (confirm(`${userNameToKick} をロビーから追放しますか？`)) {
+                    try {
+                        await deleteDoc(doc(db, "rooms", currentRoomId, "participants", userIdToKick));
+                        showMessage(`${userNameToKick} を追放しました。`, "success");
+                    } catch (error) {
+                        console.error("キック処理エラー:", error);
+                        showMessage("追放処理に失敗しました。", "error");
+                    }
+                }
+            });
+        }
+
 
         // --- Firestore リアルタイムリスナー ---
 
@@ -3508,6 +3577,29 @@
                 
                 localRoomData = docSnap.data();
                 console.log("Room Data Updated:", localRoomData);
+
+                // v7: ホストによってルームが終了させられた場合 (キック、ホスト退室)
+                if (localRoomData.status === 'finished') {
+                    // 自分はまだ残っているか？ (キックされたかの判定)
+                    const me = localParticipantsData.find(p => p.id === currentUserId);
+                    if (!me && draftRoomEl.classList.contains('hidden') === false) { // 既にルームに入っていて、参加者リストから消えた
+                        // キックされた
+                        showMessage("ホストによってロビーから追放されました。", "error");
+                    } else {
+                        // ホストが終了させた
+                        showMessage("ドラフトが終了しました。", "info");
+                    }
+                    
+                    // リスナーを解除してリロード
+                    if (roomUnsubscribe) roomUnsubscribe();
+                    if (participantsUnsubscribe) participantsUnsubscribe();
+                    
+                    // 3秒後にトップページに戻る
+                    setTimeout(() => {
+                        window.location.href = window.location.pathname;
+                    }, 3000);
+                }
+
                 updateRoomUI(localRoomData);
                 updateCardPoolUI(localRoomData.draftPool);
             }, (error) => {
@@ -3527,6 +3619,25 @@
                 });
                 
                 console.log("Participants Data Updated:", localParticipantsData);
+
+                // v7: キックされたかどうかの判定 (自分がリストから消えた場合)
+                if (draftRoomEl.classList.contains('hidden') === false) { // ドラフトルーム表示中
+                    const me = localParticipantsData.find(p => p.id === currentUserId);
+                    if (!me) {
+                        // 参加者リストから自分が消えた = キックされた
+                        showMessage("ホストによってロビーから追放されました。", "error");
+                        
+                        if (roomUnsubscribe) roomUnsubscribe();
+                        if (participantsUnsubscribe) participantsUnsubscribe();
+                        
+                        setTimeout(() => {
+                            window.location.href = window.location.pathname;
+                        }, 3000);
+                        return; // UI更新を中断
+                    }
+                }
+
+
                 updateParticipantsUI(localParticipantsData);
                 updateMyStatusUI(localParticipantsData); // タイマーロジックも含む
                 updateDraftBoardUI(localParticipantsData, localRoomData?.currentRound ?? 1);
@@ -3665,9 +3776,21 @@
                     statusClass = "status-waiting";
                 }
 
+                // v7: キックボタンのHTML (ホストのみ、他人に対して表示)
+                const kickButtonHtml = (isHost && p.id !== currentUserId) ? `
+                    <button class="kick-btn absolute top-1 right-1 p-1 text-red-400 hover:text-red-700" 
+                            data-kick-id="${p.id}" data-kick-name="${p.name}" title="${p.name} を追放する">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                ` : '';
+
                 // v6: statusText に <br> が入る可能性があるので、span -> div に変更
+                // v7: relative を追加してキックボタンの基準にする
                 participantsGridEl.innerHTML += `
-                    <div class="${statusClass} border-2 rounded-lg p-3 text-center shadow-sm transition-all duration-300">
+                    <div class="${statusClass} relative border-2 rounded-lg p-3 text-center shadow-sm transition-all duration-300">
+                        ${kickButtonHtml}
                         <span class="font-semibold block truncate" title="${p.name}">
                             ${p.name} ${p.isHost ? '(H)' : ''}
                         </span>
